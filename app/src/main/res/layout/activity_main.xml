@@ -65,9 +65,27 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
+            <Switch
+                android:id="@+id/swRememberMe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="30dp"
+                android:textColor="#2B0000"
+                android:text="Remember Me?" />
 
 
-
+            <Button
+                android:id="@+id/btnLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="60dp"
+                android:layout_marginBottom="62dp"
+                android:background="#2B0000"
+                android:text="Login"
+                android:textColor="#F6EFE4"
+                app:layout_constraintBottom_toBottomOf="parent" />
 
 
         </LinearLayout>
