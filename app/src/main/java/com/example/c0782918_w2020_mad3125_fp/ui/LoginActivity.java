@@ -5,10 +5,13 @@ import androidx.databinding.DataBindingUtil;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
+import android.view.View;
 import android.widget.CompoundButton;
 
 import com.example.c0782918_w2020_mad3125_fp.R;
 import com.example.c0782918_w2020_mad3125_fp.databinding.ActivityMainBinding;
+import com.example.c0782918_w2020_mad3125_fp.util.MyHandlers;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -33,6 +36,8 @@ public class LoginActivity extends AppCompatActivity {
         mainBinding = DataBindingUtil.setContentView(this,R.layout.activity_main);
 
         getSupportActionBar().hide();
+
+        MyHandlers handler = new MyHandlers();
 
         ArrayList<String> emailArrayList = new ArrayList<>();
         ArrayList<String> passwordArrayList = new ArrayList<>();
@@ -82,4 +87,15 @@ public class LoginActivity extends AppCompatActivity {
         }
         return json;
     }
+
+   public void onbtnLoginClicked(){
+
+        mainBinding.btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+   }
+
 }
