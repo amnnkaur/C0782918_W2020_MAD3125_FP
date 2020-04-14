@@ -13,11 +13,12 @@ public class Customer {
     private String phoneNumber;
     private String gender;
     private String birthDate;
+    private Double totalBill;
 
 
-
-    public Customer(int customerID, String firstName, String lastName, String fullName, String email, String phoneNumber, String gender, String birthDate) {
+    public Customer(int customerID, int customerImage, String firstName, String lastName, String fullName, String email, String phoneNumber, String gender, String birthDate, Double totalBill) {
         this.customerID = customerID;
+        this.customerImage = customerImage;
         this.firstName = firstName;
         this.lastName = lastName;
         this.fullName = fullName;
@@ -25,6 +26,7 @@ public class Customer {
         this.phoneNumber = phoneNumber;
         this.gender = gender;
         this.birthDate = birthDate;
+        this.totalBill = totalBill;
     }
 
     public int getCustomerID() {
@@ -41,6 +43,22 @@ public class Customer {
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
+    }
+
+    public int getCustomerImage() {
+        return customerImage;
+    }
+
+    public void setCustomerImage(int customerImage) {
+        this.customerImage = customerImage;
+    }
+
+    public Double getTotalBill() {
+        return totalBill;
+    }
+
+    public void setTotalBill(Double totalBill) {
+        this.totalBill = totalBill;
     }
 
     public String getLastName() {
