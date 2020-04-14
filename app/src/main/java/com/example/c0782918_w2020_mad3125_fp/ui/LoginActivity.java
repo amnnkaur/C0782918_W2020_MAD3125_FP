@@ -70,11 +70,11 @@ public class LoginActivity extends AppCompatActivity {
     public String loadJSONFromAsset(String filename) {
         String json = null;
         try {
-            InputStream is = getAssets().open(filename);
-            int size = is.available();
+            InputStream inputStream = getAssets().open(filename);
+            int size = inputStream.available();
             byte[] buffer = new byte[size];
-            is.read(buffer);
-            is.close();
+            inputStream.read(buffer);
+            inputStream.close();
             json = new String(buffer, "UTF-8");
         } catch (IOException ex) {
             ex.printStackTrace();
