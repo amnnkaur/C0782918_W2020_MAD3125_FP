@@ -48,7 +48,22 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        try {
+            JSONObject obj = new JSONObject(loadJSONFromAsset("usersLogin.json"));
+            JSONArray userArray = obj.getJSONArray("users");
+            for (int i = 0; i < userArray.length(); i++)
+            {
+                JSONObject userInfo = userArray.getJSONObject(i);
+                emailArrayList.add(userInfo.getString("email"));
+                passwordArrayList.add(userInfo.getString("password"));
+            }
+        }
+        catch (JSONException e)
+        {
+            e.printStackTrace();
+        }
 
+       // mainBinding.btnLogin.
 
     }
 
