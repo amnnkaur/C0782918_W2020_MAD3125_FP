@@ -24,7 +24,46 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-           
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/editTxtEmail"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="20dp"
+                android:ems="10"
+                android:hint="Enter your Email"
+                android:inputType="textEmailAddress"
+                app:startIconDrawable="@drawable/emaillogo">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:textColor="#2B0000" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/editTxtPassword"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="26dp"
+                android:layout_marginEnd="20dp"
+                android:ems="10"
+                android:hint="Enter Password"
+                android:inputType="textPassword"
+                app:passwordToggleEnabled="true"
+                app:startIconDrawable="@drawable/passwordicon">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:textColor="#2B0000" />
+
+            </com.google.android.material.textfield.TextInputLayout>
 
 
 
