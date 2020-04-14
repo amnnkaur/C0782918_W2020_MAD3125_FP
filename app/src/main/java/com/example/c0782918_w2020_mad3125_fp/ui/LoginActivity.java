@@ -23,7 +23,7 @@ public class LoginActivity extends AppCompatActivity {
 
     ActivityMainBinding mainBinding;
 
-  
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
