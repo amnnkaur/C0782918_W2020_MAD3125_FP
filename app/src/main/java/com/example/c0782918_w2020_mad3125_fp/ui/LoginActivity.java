@@ -23,6 +23,9 @@ public class LoginActivity extends AppCompatActivity {
 
     ActivityMainBinding mainBinding;
 
+    public static final String SHARED_PREFS = "sharedPrefs";
+    public static final String EMAIL = "email";
+    public static final String PASSWORD = "password";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
