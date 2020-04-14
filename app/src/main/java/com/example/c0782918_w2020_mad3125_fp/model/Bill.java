@@ -4,7 +4,6 @@ import java.util.Date;
 
 public abstract class Bill {
 
-
     String billID;
     BillType billType;
     Date billDate;
