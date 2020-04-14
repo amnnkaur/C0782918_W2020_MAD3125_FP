@@ -34,7 +34,15 @@ public class LoginActivity extends AppCompatActivity {
 
         getSupportActionBar().hide();
 
+      
 
+        mainBinding.swRememberMe.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+
+            }
+        });
 
 
 
