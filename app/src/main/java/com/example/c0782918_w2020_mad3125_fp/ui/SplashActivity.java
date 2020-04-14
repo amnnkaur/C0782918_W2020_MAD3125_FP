@@ -18,7 +18,7 @@ public class SplashActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
         getSupportActionBar().hide();
 
-
+        handler.sendEmptyMessageDelayed(101,5000);
 
     }
 
@@ -27,7 +27,11 @@ public class SplashActivity extends AppCompatActivity {
          @Override
          public void handleMessage(@NonNull Message msg) {
              super.handleMessage(msg);
-            
+             if(msg.what == 101){
+                 Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+                 startActivity(intent);
+                 finish();
+             }
          }
      };
 }
