@@ -34,12 +34,16 @@ public class LoginActivity extends AppCompatActivity {
 
         getSupportActionBar().hide();
 
-      
+        ArrayList<String> emailArrayList = new ArrayList<>();
+        ArrayList<String> passwordArrayList = new ArrayList<>();
 
         mainBinding.swRememberMe.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-
+                SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS,MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString(EMAIL, mainBinding.txtEmail.toString());
+                editor.putString(PASSWORD, mainBinding.txtPassword.toString());
 
             }
         });
