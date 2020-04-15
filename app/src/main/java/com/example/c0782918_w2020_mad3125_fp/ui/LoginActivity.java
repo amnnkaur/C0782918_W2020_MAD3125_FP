@@ -137,6 +137,18 @@ public class LoginActivity extends AppCompatActivity {
                 }
 
 
+                AlertDialog.Builder alertBuilder = new AlertDialog.Builder(LoginActivity.this);
+                alertBuilder.setTitle("Error!");
+                alertBuilder.setMessage("Invalid Email or Password.");
+                alertBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                        })
+                        .show();
+                return;
+
 
 
             }
