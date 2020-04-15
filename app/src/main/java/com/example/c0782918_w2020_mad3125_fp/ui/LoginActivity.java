@@ -1,8 +1,11 @@
 package com.example.c0782918_w2020_mad3125_fp.ui;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
@@ -12,6 +15,7 @@ import android.widget.CompoundButton;
 import com.example.c0782918_w2020_mad3125_fp.R;
 import com.example.c0782918_w2020_mad3125_fp.databinding.ActivityMainBinding;
 import com.example.c0782918_w2020_mad3125_fp.util.MyHandlers;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -30,6 +34,13 @@ public class LoginActivity extends AppCompatActivity {
     public static final String EMAIL = "email";
     public static final String PASSWORD = "password";
 
+    ArrayList<String> emailArrayList = new ArrayList<>();
+    ArrayList<String> passwordArrayList = new ArrayList<>();
+
+    SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS,MODE_PRIVATE);
+    SharedPreferences.Editor editor = sharedPreferences.edit();
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,19 +50,12 @@ public class LoginActivity extends AppCompatActivity {
 
         MyHandlers handler = new MyHandlers();
 
-        ArrayList<String> emailArrayList = new ArrayList<>();
-        ArrayList<String> passwordArrayList = new ArrayList<>();
 
-        mainBinding.swRememberMe.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS,MODE_PRIVATE);
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putString(EMAIL, mainBinding.txtEmail.toString());
-                editor.putString(PASSWORD, mainBinding.txtPassword.toString());
 
-            }
-        });
+        editor.putString(EMAIL, mainBinding.txtEmail.toString());
+        editor.putString(PASSWORD, mainBinding.txtPassword.toString());
+
+
 
         try {
             JSONObject obj = new JSONObject(loadJSONFromAsset("usersLogin.json"));
@@ -67,8 +71,16 @@ public class LoginActivity extends AppCompatActivity {
         {
             e.printStackTrace();
         }
+/*
+        mainBinding.swRememberMe.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 
-       // mainBinding.btnLogin.
+
+
+            }
+        });*/
+
 
     }
 
@@ -89,10 +101,14 @@ public class LoginActivity extends AppCompatActivity {
     }
 
    public void onbtnLoginClicked(){
-
         mainBinding.btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+               
+
+
+
 
             }
         });
