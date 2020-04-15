@@ -105,7 +105,15 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-               
+                if(mainBinding.txtEmail.getText().toString().isEmpty())
+                {
+                    mainBinding.txtEmail.setError("Enter your email address");
+                }
+                else if(mainBinding.txtPassword.getText().toString().isEmpty())
+                {
+                    mainBinding.txtPassword.setError("Enter your password");
+                }
+
 
 
 
