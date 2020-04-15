@@ -1,5 +1,7 @@
 package com.example.c0782918_w2020_mad3125_fp.adapter;
 
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +14,7 @@ import com.example.c0782918_w2020_mad3125_fp.R;
 import com.example.c0782918_w2020_mad3125_fp.databinding.ItemCustomerBinding;
 import com.example.c0782918_w2020_mad3125_fp.model.Customer;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.CustomerViewHolder> {
@@ -36,7 +39,26 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.Custom
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CustomerViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final CustomerViewHolder holder, final int position) {
+
+
+        Customer customer = this.customerArrayList.get(position);
+        holder.itemCustomerBinding.setCustomer(customer);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Customer pos = customerArrayList.get(position);
+                Bundle myBundle = new Bundle();
+                myBundle.putSerializable("customerDetail", (Serializable) pos);
+
+               /* Intent cusIntent = new Intent(holder.itemView.getContext(), MainActivity.class);
+                cusIntent.putExtra("object", myBundle);
+                holder.itemView.getContext().startActivity(cusIntent);*/
+            }
+        });
+
 
     }
 
@@ -46,8 +68,14 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.Custom
     }
 
     public class CustomerViewHolder extends RecyclerView.ViewHolder {
+
+        ItemCustomerBinding itemCustomerBinding;
+
         public CustomerViewHolder(@NonNull ItemCustomerBinding itemView) {
+
             super(itemView.getRoot());
+
+            this.itemCustomerBinding = itemView;
         }
     }
 }
