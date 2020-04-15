@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.example.c0782918_w2020_mad3125_fp.DataBinderMapperImpl;
 import com.example.c0782918_w2020_mad3125_fp.R;
@@ -23,6 +24,14 @@ public class CustomerListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         customerListBinding = DataBindingUtil.setContentView(this, R.layout.activity_customer_list);
+
+        customerListBinding.fabAddCustomer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               /* Intent fIntent = new Intent(CustomerListActivity.this,LoginActivity.class);
+                startActivity(fIntent);*/
+            }
+        });
     }
 
     @Override
