@@ -7,10 +7,10 @@ public class Mobile extends Bill {
     private String mobileManfName;
     private String planName;
     private String mobileNumber;
-    private String internetUsed;
-    private String minuteUsed;
+    private int internetUsed;
+    private int minuteUsed;
 
-    public Mobile(String billID, BillType billType, Date billDate, Double billTotal, String mobileManfName, String planName, String mobileNumber, String internetUsed, String minuteUsed) {
+    public Mobile(String billID, BillType billType, Date billDate, Double billTotal, String mobileManfName, String planName, String mobileNumber, int internetUsed, int minuteUsed) {
         super(billID, billType, billDate, billTotal);
 
         this.mobileManfName = mobileManfName;
@@ -44,19 +44,19 @@ public class Mobile extends Bill {
         this.mobileNumber = mobileNumber;
     }
 
-    public String getInternetUsed() {
+    public int getInternetUsed() {
         return internetUsed;
     }
 
-    public void setInternetUsed(String internetUsed) {
+    public void setInternetUsed(int internetUsed) {
         this.internetUsed = internetUsed;
     }
 
-    public String getMinuteUsed() {
+    public int getMinuteUsed() {
         return minuteUsed;
     }
 
-    public void setMinuteUsed(String minuteUsed) {
+    public void setMinuteUsed(int minuteUsed) {
         this.minuteUsed = minuteUsed;
     }
 }

@@ -7,6 +7,9 @@
         <variable
             name="Customer"
             type="com.example.c0782918_w2020_mad3125_fp.model.Customer" />
+
+        <import type="com.example.c0782918_w2020_mad3125_fp.util.StringUtil"/>
+
     </data>
 
 <androidx.constraintlayout.widget.ConstraintLayout
@@ -14,8 +17,10 @@
     android:layout_height="match_parent">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="408dp"
-        android:layout_height="119dp"
+        android:layout_width="401dp"
+        android:layout_height="151dp"
+        android:backgroundColor="#ECDFCB"
+        app:cardCornerRadius="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -28,7 +33,7 @@
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 tools:srcCompat="@tools:sample/avatars" />
 
             <LinearLayout
@@ -40,23 +45,37 @@
                     android:id="@+id/textViewName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@{Customer.fullName}" />
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:gravity="center_horizontal"
+                    android:text="@{Customer.fullName}"
+                    android:textAlignment="center"
+                    android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/textViewEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@{Customer.email}" />
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:gravity="center_horizontal"
+                    android:text="@{Customer.email}"
+                    android:textAlignment="center"
+                    android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/textViewBill"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="TextView" />
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:gravity="end"
+                    android:text="@{StringUtil.convertDoubleToString(Customer.totalBill)}"
+                    android:textAlignment="viewEnd"
+                    android:textSize="18sp" />
 
 
             </LinearLayout>
-
 
         </LinearLayout>
 

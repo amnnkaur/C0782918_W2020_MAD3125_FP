@@ -5,9 +5,9 @@ import java.util.Date;
 public class Internet extends Bill {
 
     private String providerName;
-    private String internetGBUsed;
+    private int internetGBUsed;
 
-    public Internet(String billID, BillType billType, Date billDate, Double billTotal, String providerName, String internetGBUsed) {
+    public Internet(String billID, BillType billType, Date billDate, Double billTotal, String providerName, int internetGBUsed) {
         super(billID, billType, billDate, billTotal);
 
         this.providerName = providerName;
@@ -22,11 +22,11 @@ public class Internet extends Bill {
         this.providerName = providerName;
     }
 
-    public String getInternetGBUsed() {
+    public int getInternetGBUsed() {
         return internetGBUsed;
     }
 
-    public void setInternetGBUsed(String internetGBUsed) {
+    public void setInternetGBUsed(int internetGBUsed) {
         this.internetGBUsed = internetGBUsed;
     }
 }

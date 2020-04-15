@@ -5,9 +5,9 @@ import java.util.Date;
 public class Hydro extends Bill {
 
     private String agencyName;
-    private String unitsConsumed;
+    private int unitsConsumed;
 
-    public Hydro(String billID, BillType billType, Date billDate, Double billTotal, String agencyName, String unitsConsumed) {
+    public Hydro(String billID, BillType billType, Date billDate, Double billTotal, String agencyName, int unitsConsumed) {
         super(billID, billType, billDate, billTotal);
 
         this.agencyName = agencyName;
@@ -22,11 +22,11 @@ public class Hydro extends Bill {
         this.agencyName = agencyName;
     }
 
-    public String getUnitsConsumed() {
+    public int getUnitsConsumed() {
         return unitsConsumed;
     }
 
-    public void setUnitsConsumed(String unitsConsumed) {
+    public void setUnitsConsumed(int unitsConsumed) {
         this.unitsConsumed = unitsConsumed;
     }
 }
