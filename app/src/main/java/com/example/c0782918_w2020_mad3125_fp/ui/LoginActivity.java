@@ -129,7 +129,9 @@ public class LoginActivity extends AppCompatActivity {
                                 editor.putString(PASSWORD, "");
                                 editor.apply();
                             }
-
+                            Intent mIntent = new Intent(LoginActivity.this, CustomerListActivity.class);
+                            startActivity(mIntent);
+                            return;
                         }
                     }
                 }
