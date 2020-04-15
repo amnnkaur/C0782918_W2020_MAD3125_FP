@@ -30,7 +30,6 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.Custom
     @Override
     public CustomerViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-
         ItemCustomerBinding itemCustomerBinding = DataBindingUtil.inflate(
                 LayoutInflater.from(parent.getContext()), R.layout.item_customer,parent,false);
 
@@ -41,7 +40,6 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.Custom
 
     @Override
     public void onBindViewHolder(@NonNull final CustomerViewHolder holder, final int position) {
-
 
         Customer customer = this.customerArrayList.get(position);
         holder.itemCustomerBinding.setCustomer(customer);

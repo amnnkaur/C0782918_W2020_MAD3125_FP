@@ -52,12 +52,14 @@ public class LoginActivity extends AppCompatActivity {
 
        // MyHandlers handler = new MyHandlers();
 
+        String email = sharedPreferences.getString(EMAIL, null);
+        String password = sharedPreferences.getString(PASSWORD, null);
+        mainBinding.txtEmail.setText(email);
+        mainBinding.txtPassword.setText(password);
 
 
         editor.putString(EMAIL, mainBinding.txtEmail.toString());
         editor.putString(PASSWORD, mainBinding.txtPassword.toString());
-
-
 
         try {
             JSONObject obj = new JSONObject(loadJSONFromAsset("usersLogin.json"));
@@ -139,7 +141,6 @@ public class LoginActivity extends AppCompatActivity {
                     }
                 }
 
-
                 AlertDialog.Builder alertBuilder = new AlertDialog.Builder(LoginActivity.this);
                 alertBuilder.setTitle("Error!");
                 alertBuilder.setMessage("Invalid Email or Password.");
@@ -151,8 +152,6 @@ public class LoginActivity extends AppCompatActivity {
                         })
                         .show();
                 return;
-
-
 
             }
         });
