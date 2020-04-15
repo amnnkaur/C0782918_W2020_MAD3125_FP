@@ -1,8 +1,9 @@
 package com.example.c0782918_w2020_mad3125_fp.model;
 
+import java.io.Serializable;
 import java.lang.reflect.Array;
 
-public class Customer {
+public class Customer implements Serializable {
 
     private int customerID;
     private int customerImage;
