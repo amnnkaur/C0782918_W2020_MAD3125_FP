@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.c0782918_w2020_mad3125_fp.R;
 import com.example.c0782918_w2020_mad3125_fp.databinding.ItemCustomerBinding;
 import com.example.c0782918_w2020_mad3125_fp.model.Customer;
+import com.example.c0782918_w2020_mad3125_fp.ui.ShowBillDetailsActivity;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -53,9 +54,9 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.Custom
                 Bundle myBundle = new Bundle();
                 myBundle.putSerializable("customerDetail", (Serializable) pos);
 
-               /* Intent cusIntent = new Intent(holder.itemView.getContext(), MainActivity.class);
+                Intent cusIntent = new Intent(holder.itemView.getContext(), ShowBillDetailsActivity.class);
                 cusIntent.putExtra("object", myBundle);
-                holder.itemView.getContext().startActivity(cusIntent);*/
+                holder.itemView.getContext().startActivity(cusIntent);
             }
         });
 

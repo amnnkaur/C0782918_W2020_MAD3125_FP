@@ -1,8 +1,9 @@
 package com.example.c0782918_w2020_mad3125_fp.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public abstract class Bill {
+public abstract class Bill implements Serializable {
 
     String billID;
     BillType billType;

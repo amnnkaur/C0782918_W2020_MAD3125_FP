@@ -14,6 +14,7 @@ import android.widget.CompoundButton;
 
 import com.example.c0782918_w2020_mad3125_fp.R;
 import com.example.c0782918_w2020_mad3125_fp.databinding.ActivityMainBinding;
+import com.example.c0782918_w2020_mad3125_fp.model.Customer;
 import com.example.c0782918_w2020_mad3125_fp.util.MyHandlers;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
@@ -29,6 +30,7 @@ import java.util.ArrayList;
 public class LoginActivity extends AppCompatActivity {
 
     ActivityMainBinding mainBinding;
+
 
     public static final String SHARED_PREFS = "sharedPrefs";
     public static final String EMAIL = "email";
@@ -48,7 +50,7 @@ public class LoginActivity extends AppCompatActivity {
 
         getSupportActionBar().hide();
 
-        MyHandlers handler = new MyHandlers();
+       // MyHandlers handler = new MyHandlers();
 
 
 
@@ -129,6 +131,7 @@ public class LoginActivity extends AppCompatActivity {
                                 editor.putString(PASSWORD, "");
                                 editor.apply();
                             }
+
                             Intent mIntent = new Intent(LoginActivity.this, CustomerListActivity.class);
                             startActivity(mIntent);
                             return;
