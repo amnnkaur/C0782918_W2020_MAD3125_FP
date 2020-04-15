@@ -36,12 +36,11 @@ public class LoginActivity extends AppCompatActivity {
     public static final String EMAIL = "email";
     public static final String PASSWORD = "password";
 
-    ArrayList<String> emailArrayList = new ArrayList<>();
-    ArrayList<String> passwordArrayList = new ArrayList<>();
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
 
-    SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS,MODE_PRIVATE);
-    SharedPreferences.Editor editor = sharedPreferences.edit();
-
+    ArrayList<String> emailArrayList;
+    ArrayList<String> passwordArrayList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,11 +51,17 @@ public class LoginActivity extends AppCompatActivity {
 
        // MyHandlers handler = new MyHandlers();
 
+         sharedPreferences = getSharedPreferences(SHARED_PREFS,MODE_PRIVATE);
+         editor = sharedPreferences.edit();
+
+        emailArrayList = new ArrayList<>();
+        passwordArrayList = new ArrayList<>();
+
         String email = sharedPreferences.getString(EMAIL, null);
         String password = sharedPreferences.getString(PASSWORD, null);
+
         mainBinding.txtEmail.setText(email);
         mainBinding.txtPassword.setText(password);
-
 
         editor.putString(EMAIL, mainBinding.txtEmail.toString());
         editor.putString(PASSWORD, mainBinding.txtPassword.toString());
@@ -104,7 +109,7 @@ public class LoginActivity extends AppCompatActivity {
         return json;
     }
 
-   public void onbtnLoginClicked(){
+    public void onbtnLoginClicked(){
         mainBinding.btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -149,12 +154,15 @@ public class LoginActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.dismiss();
                     }
-                        })
+                })
                         .show();
                 return;
 
             }
         });
-   }
+    }
+
+
+
 
 }
