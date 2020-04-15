@@ -28,8 +28,8 @@ public class CustomerListActivity extends AppCompatActivity {
         customerListBinding.fabAddCustomer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               /* Intent fIntent = new Intent(CustomerListActivity.this,LoginActivity.class);
-                startActivity(fIntent);*/
+                Intent fIntent = new Intent(CustomerListActivity.this,AddNewCustomerActivity.class);
+                startActivity(fIntent);
             }
         });
     }
