@@ -42,7 +42,26 @@ public class CustomerListActivity extends AppCompatActivity {
                 startActivity(conIntent);*/
                 break;
             case R.id.menu_logout:
-                
+                AlertDialog.Builder alertBuilder = new AlertDialog.Builder(CustomerListActivity.this);
+                alertBuilder.setTitle("Logout");
+                alertBuilder.setMessage("Are you sure you want to Logout?");
+                alertBuilder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent backIntent = new Intent(CustomerListActivity.this,LoginActivity.class);
+                        startActivity(backIntent);
+                    }
+
+                });
+                alertBuilder.setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                })
+
+                        .show();
+                break;
         }
         return super.onOptionsItemSelected(item);
     }
