@@ -113,7 +113,26 @@ public class LoginActivity extends AppCompatActivity {
                 {
                     mainBinding.txtPassword.setError("Enter your password");
                 }
+                else{
+                    for(int i=0, j =0; i<emailArrayList.size(); i++, j++)
+                    {
+                        if(emailArrayList.get(i).equals(mainBinding.txtPassword.getText().toString()) && passwordArrayList.get(i).equals(mainBinding.txtPassword.getText().toString()))
+                        {
+                            if (mainBinding.swRememberMe.isChecked()) {
 
+                                editor.putString(EMAIL,mainBinding.txtEmail.getText().toString());
+                                editor.putString(PASSWORD,mainBinding.txtPassword.getText().toString());
+                                editor.apply();
+
+                            } else {
+                                editor.putString(EMAIL, "");
+                                editor.putString(PASSWORD, "");
+                                editor.apply();
+                            }
+
+                        }
+                    }
+                }
 
 
 
