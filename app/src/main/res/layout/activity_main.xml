@@ -92,7 +92,7 @@
                 android:background="#2B0000"
                 android:text="Login"
                 android:textColor="#F6EFE4"
-                android:onClick="@{myHandler::onBtnSubmitClicked()}"
+                android:onClick="@{myHandler::onBtnSubmitClicked}"
                 app:layout_constraintBottom_toBottomOf="parent" />
 
 
