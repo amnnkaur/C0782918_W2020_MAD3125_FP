@@ -105,4 +105,10 @@ public class CustomerListActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        customerArrayList.clear();
+    }
 }
