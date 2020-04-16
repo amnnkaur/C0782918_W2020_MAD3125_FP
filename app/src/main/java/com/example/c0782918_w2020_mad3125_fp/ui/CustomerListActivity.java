@@ -25,6 +25,9 @@ public class CustomerListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         customerListBinding = DataBindingUtil.setContentView(this, R.layout.activity_customer_list);
 
+        //datastorge.getinstnce
+        //cust.getAllCustomer
+
         customerListBinding.fabAddCustomer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

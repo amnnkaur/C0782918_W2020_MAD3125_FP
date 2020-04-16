@@ -4,6 +4,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -31,6 +32,7 @@ public class LoginActivity extends AppCompatActivity {
 
     ActivityMainBinding mainBinding;
 
+    private MyHandlers handlers;
 
     public static final String SHARED_PREFS = "sharedPrefs";
     public static final String EMAIL = "email";
@@ -49,7 +51,8 @@ public class LoginActivity extends AppCompatActivity {
 
         getSupportActionBar().hide();
 
-       // MyHandlers handler = new MyHandlers();
+        handlers = new MyHandlers(this);
+        mainBinding.setMyHandler(handlers);
 
          sharedPreferences = getSharedPreferences(SHARED_PREFS,MODE_PRIVATE);
          editor = sharedPreferences.edit();
@@ -85,8 +88,6 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 
-
-
             }
         });*/
 
@@ -108,6 +109,7 @@ public class LoginActivity extends AppCompatActivity {
         }
         return json;
     }
+
 
     public void onbtnLoginClicked(){
         mainBinding.btnLogin.setOnClickListener(new View.OnClickListener() {
@@ -139,8 +141,8 @@ public class LoginActivity extends AppCompatActivity {
                                 editor.apply();
                             }
 
-                            Intent mIntent = new Intent(LoginActivity.this, CustomerListActivity.class);
-                            startActivity(mIntent);
+                           /* Intent mIntent = new Intent(LoginActivity.this, CustomerListActivity.class);
+                            startActivity(mIntent);*/
                             return;
                         }
                     }
@@ -162,7 +164,23 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
+    public class MyHandlers {
 
+        Context context;
+
+        public MyHandlers(Context context){
+            this.context = context;
+        }
+
+        public void onBtnSubmitClicked(View view) {
+
+            Intent mIntent = new Intent(LoginActivity.this, CustomerListActivity.class);
+            startActivity(mIntent);
+
+
+        }
+
+    }
 
 
 }

@@ -2,8 +2,9 @@
 <layout>
     <data>
         <variable
-            name="login"
-            type="com.example.c0782918_w2020_mad3125_fp.ui.LoginActivity" />
+            name="myHandler"
+            type="com.example.c0782918_w2020_mad3125_fp.ui.LoginActivity.MyHandlers" />
+
     </data>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -91,7 +92,7 @@
                 android:background="#2B0000"
                 android:text="Login"
                 android:textColor="#F6EFE4"
-                android:onClick="@{() -> login.onbtnLoginClicked()}"
+                android:onClick="@{myHandler::onBtnSubmitClicked()}"
                 app:layout_constraintBottom_toBottomOf="parent" />
 
 
