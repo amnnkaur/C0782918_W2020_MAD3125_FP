@@ -15,6 +15,9 @@ import android.view.View;
 import com.example.c0782918_w2020_mad3125_fp.DataBinderMapperImpl;
 import com.example.c0782918_w2020_mad3125_fp.R;
 import com.example.c0782918_w2020_mad3125_fp.databinding.ActivityCustomerListBinding;
+import com.example.c0782918_w2020_mad3125_fp.model.Customer;
+
+import java.util.ArrayList;
 
 public class CustomerListActivity extends AppCompatActivity {
 
@@ -35,6 +38,7 @@ public class CustomerListActivity extends AppCompatActivity {
                 startActivity(fIntent);
             }
         });
+
     }
 
     @Override

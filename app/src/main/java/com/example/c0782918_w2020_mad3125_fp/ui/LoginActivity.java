@@ -9,15 +9,10 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.View;
-import android.widget.CompoundButton;
 
 import com.example.c0782918_w2020_mad3125_fp.R;
 import com.example.c0782918_w2020_mad3125_fp.databinding.ActivityMainBinding;
-import com.example.c0782918_w2020_mad3125_fp.model.Customer;
-import com.example.c0782918_w2020_mad3125_fp.util.MyHandlers;
-import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -25,7 +20,6 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
 public class LoginActivity extends AppCompatActivity {
@@ -111,76 +105,56 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
-    public void onbtnLoginClicked(){
-        mainBinding.btnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                if(mainBinding.txtEmail.getText().toString().isEmpty())
-                {
-                    mainBinding.txtEmail.setError("Enter your email address");
-                }
-                else if(mainBinding.txtPassword.getText().toString().isEmpty())
-                {
-                    mainBinding.txtPassword.setError("Enter your password");
-                }
-                else{
-                    for(int i=0, j =0; i<emailArrayList.size(); i++, j++)
-                    {
-                        if(emailArrayList.get(i).equals(mainBinding.txtPassword.getText().toString()) && passwordArrayList.get(i).equals(mainBinding.txtPassword.getText().toString()))
-                        {
-                            if (mainBinding.swRememberMe.isChecked()) {
-
-                                editor.putString(EMAIL,mainBinding.txtEmail.getText().toString());
-                                editor.putString(PASSWORD,mainBinding.txtPassword.getText().toString());
-                                editor.apply();
-
-                            } else {
-                                editor.putString(EMAIL, "");
-                                editor.putString(PASSWORD, "");
-                                editor.apply();
-                            }
-
-                           /* Intent mIntent = new Intent(LoginActivity.this, CustomerListActivity.class);
-                            startActivity(mIntent);*/
-                            return;
-                        }
-                    }
-                }
-
-                AlertDialog.Builder alertBuilder = new AlertDialog.Builder(LoginActivity.this);
-                alertBuilder.setTitle("Error!");
-                alertBuilder.setMessage("Invalid Email or Password.");
-                alertBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                })
-                        .show();
-                return;
-
-            }
-        });
-    }
-
     public class MyHandlers {
 
         Context context;
 
-        public MyHandlers(Context context){
+        public MyHandlers(Context context) {
             this.context = context;
         }
 
         public void onBtnSubmitClicked(View view) {
 
-            Intent mIntent = new Intent(LoginActivity.this, CustomerListActivity.class);
-            startActivity(mIntent);
+            if (mainBinding.txtEmail.getText().toString().isEmpty()) {
+                mainBinding.txtEmail.setError("Enter your email address");
+            } else if (mainBinding.txtPassword.getText().toString().isEmpty()) {
+                mainBinding.txtPassword.setError("Enter your password");
+            } else {
+                for (int i = 0, j = 0; i < emailArrayList.size(); i++, j++) {
+                    if (emailArrayList.get(i).equals(mainBinding.txtPassword.getText().toString()) && passwordArrayList.get(i).equals(mainBinding.txtPassword.getText().toString())) {
+                        if (mainBinding.swRememberMe.isChecked()) {
 
+                            editor.putString(EMAIL, mainBinding.txtEmail.getText().toString());
+                            editor.putString(PASSWORD, mainBinding.txtPassword.getText().toString());
+                            editor.apply();
+
+                        } else {
+                            editor.putString(EMAIL, "");
+                            editor.putString(PASSWORD, "");
+                            editor.apply();
+                        }
+
+                        Intent mIntent = new Intent(LoginActivity.this, CustomerListActivity.class);
+                        startActivity(mIntent);
+                        return;
+                    }
+                }
+            }
+
+            AlertDialog.Builder alertBuilder = new AlertDialog.Builder(LoginActivity.this);
+            alertBuilder.setTitle("Error!");
+            alertBuilder.setMessage("Invalid Email or Password.");
+            alertBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.dismiss();
+                }
+            })
+                    .show();
+            return;
 
         }
 
     }
-
 
 }
