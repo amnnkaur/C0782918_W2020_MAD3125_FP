@@ -7,11 +7,13 @@ import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -22,6 +24,7 @@ import android.widget.Toast;
 import com.example.c0782918_w2020_mad3125_fp.DataBinderMapperImpl;
 import com.example.c0782918_w2020_mad3125_fp.R;
 import com.example.c0782918_w2020_mad3125_fp.adapter.CustomerAdapter;
+import com.example.c0782918_w2020_mad3125_fp.databinding.AboutUsBinding;
 import com.example.c0782918_w2020_mad3125_fp.databinding.ActivityCustomerListBinding;
 import com.example.c0782918_w2020_mad3125_fp.model.Customer;
 import com.example.c0782918_w2020_mad3125_fp.singleton.DataStorage;
@@ -83,7 +86,7 @@ public class CustomerListActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.menu_aboutUs:
-                aboutUsDialog();
+                aboutUsDialog(this);
                 break;
             case R.id.menu_contactUs:
                /* Intent conIntent = new Intent(CustomerListActivity.this,LoginActivity.class);
@@ -114,8 +117,9 @@ public class CustomerListActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void aboutUsDialog(){
-        abtDialog.setContentView(R.layout.about_us);
+    public void aboutUsDialog(final Context context){
+        AboutUsBinding aboutUsBinding = AboutUsBinding.inflate(LayoutInflater.from(context));
+        abtDialog.setContentView(aboutUsBinding.getRoot());
 
         webView.loadUrl("https://www.lambtoncollege.ca/");
         webView.setWebViewClient(new WebViewClient() {
