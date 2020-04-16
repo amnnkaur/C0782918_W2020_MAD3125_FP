@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -14,6 +15,7 @@ import android.view.View;
 
 import com.example.c0782918_w2020_mad3125_fp.DataBinderMapperImpl;
 import com.example.c0782918_w2020_mad3125_fp.R;
+import com.example.c0782918_w2020_mad3125_fp.adapter.CustomerAdapter;
 import com.example.c0782918_w2020_mad3125_fp.databinding.ActivityCustomerListBinding;
 import com.example.c0782918_w2020_mad3125_fp.model.Customer;
 
@@ -23,11 +25,22 @@ public class CustomerListActivity extends AppCompatActivity {
 
     ActivityCustomerListBinding customerListBinding;
 
+    private CustomerAdapter customerAdapter;
+
+    private ArrayList<Customer> customerArrayList;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         customerListBinding = DataBindingUtil.setContentView(this, R.layout.activity_customer_list);
 
+        customerListBinding.rvCustomerList.setLayoutManager(new LinearLayoutManager(this));
+
+        populateCustomers();
+
+        customerAdapter = new CustomerAdapter(customerArrayList);
+        customerListBinding.rvCustomerList.setAdapter(customerAdapter);
         //datastorge.getinstnce
         //cust.getAllCustomer
 
@@ -38,6 +51,12 @@ public class CustomerListActivity extends AppCompatActivity {
                 startActivity(fIntent);
             }
         });
+
+    }
+    public void populateCustomers(){
+        customerArrayList = new ArrayList<>();
+
+      //  customerArrayList.add();
 
     }
 
