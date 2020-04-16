@@ -6,12 +6,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Toast;
 
 import com.example.c0782918_w2020_mad3125_fp.DataBinderMapperImpl;
@@ -31,6 +36,8 @@ public class CustomerListActivity extends AppCompatActivity {
 
     private ArrayList<Customer> customerArrayList;
 
+    private WebView webView;
+    private Dialog abtDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +60,8 @@ public class CustomerListActivity extends AppCompatActivity {
             }
         });
 
+        abtDialog = new Dialog(this);
+
     }
     public void populateCustomers(){
         customerArrayList = new ArrayList<>();
@@ -74,8 +83,7 @@ public class CustomerListActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.menu_aboutUs:
-                /*Intent abtIntent = new Intent(CustomerListActivity.this,AddNewCustomerActivity.class);
-                startActivity(abtIntent);*/
+                aboutUsDialog();
                 break;
             case R.id.menu_contactUs:
                /* Intent conIntent = new Intent(CustomerListActivity.this,LoginActivity.class);
@@ -104,6 +112,21 @@ public class CustomerListActivity extends AppCompatActivity {
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public void aboutUsDialog(){
+        abtDialog.setContentView(R.layout.about_us);
+
+        webView.loadUrl("https://www.lambtoncollege.ca/");
+        webView.setWebViewClient(new WebViewClient() {
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                view.loadUrl(url);
+                return true;
+            }
+        });
+        abtDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        abtDialog.show();
     }
 
     @Override
