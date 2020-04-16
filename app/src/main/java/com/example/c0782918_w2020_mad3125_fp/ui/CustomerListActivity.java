@@ -12,12 +12,14 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.c0782918_w2020_mad3125_fp.DataBinderMapperImpl;
 import com.example.c0782918_w2020_mad3125_fp.R;
 import com.example.c0782918_w2020_mad3125_fp.adapter.CustomerAdapter;
 import com.example.c0782918_w2020_mad3125_fp.databinding.ActivityCustomerListBinding;
 import com.example.c0782918_w2020_mad3125_fp.model.Customer;
+import com.example.c0782918_w2020_mad3125_fp.singleton.DataStorage;
 
 import java.util.ArrayList;
 
@@ -37,12 +39,11 @@ public class CustomerListActivity extends AppCompatActivity {
 
         customerListBinding.rvCustomerList.setLayoutManager(new LinearLayoutManager(this));
 
+        DataStorage.getInstance().loadData();
         populateCustomers();
 
         customerAdapter = new CustomerAdapter(customerArrayList);
         customerListBinding.rvCustomerList.setAdapter(customerAdapter);
-        //datastorge.getinstnce
-        //cust.getAllCustomer
 
         customerListBinding.fabAddCustomer.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,6 +56,11 @@ public class CustomerListActivity extends AppCompatActivity {
     }
     public void populateCustomers(){
         customerArrayList = new ArrayList<>();
+
+        if(DataStorage.getInstance().getAllCustomers().size() == 0){
+            Toast.makeText(CustomerListActivity.this, "Null", Toast.LENGTH_SHORT).show();
+        }else{
+            customerArrayList = DataStorage.getInstance().getAllCustomers();}
 
       //  customerArrayList.add();
 
