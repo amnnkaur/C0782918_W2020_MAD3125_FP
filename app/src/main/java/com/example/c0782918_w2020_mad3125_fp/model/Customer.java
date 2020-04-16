@@ -13,17 +13,16 @@ public class Customer implements Serializable {
     private String gender;
     private String birthDate;
     private Double totalBill;
-    public Customer(int customerID, int customerImage, String firstName, String lastName,/* String fullName,*/ String email, String phoneNumber,/* String gender, String birthDate,*/ Double totalBill) {
+
+
+    public Customer(int customerID, int customerImage, String firstName, String lastName, String email, String phoneNumber) {
         this.customerID = customerID;
         this.customerImage = customerImage;
         this.firstName = firstName;
         this.lastName = lastName;
-//        this.fullName = fullName;
         this.email = email;
         this.phoneNumber = phoneNumber;
-        this.gender = gender;
-        this.birthDate = birthDate;
-        this.totalBill = totalBill;
+
     }
     public int getCustomerID() {
         return customerID;

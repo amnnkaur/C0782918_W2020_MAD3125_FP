@@ -20,6 +20,12 @@ public class DataStorage {
         return this.customerArrayList;
     }
     public void loadData(){
-        this.customerArrayList.add(new Customer(1, R.drawable.ic_launcher_foreground,"Aman","Chhabra","aman@gmail.com","8768",56.87));
+        this.customerArrayList.add(new Customer(1, R.drawable.male,"Aman","Chhabra","aman@gmail.com","876551558"));
+        this.customerArrayList.add(new Customer(2, R.drawable.male,"Anmol","Singh","anmol@gmail.com","8792158622"));
+        this.customerArrayList.add(new Customer(3, R.drawable.male,"Monika","Sharma","monika@gmail.com","8765448"));
+        this.customerArrayList.add(new Customer(4, R.drawable.male,"Roop","Kaur","roop@gmail.com","86565655768"));
+        this.customerArrayList.add(new Customer(5, R.drawable.male,"Jas","Kaur","jas@gmail.com","866526768"));
+        this.customerArrayList.add(new Customer(6, R.drawable.male,"Kritima","Kukreja","kritima@gmail.com","854546768"));
+        this.customerArrayList.add(new Customer(7, R.drawable.male,"Harpreet","Singh","harpreet@gmail.com","8755456468"));
     }
 }

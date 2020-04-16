@@ -62,7 +62,6 @@ public class CustomerListActivity extends AppCompatActivity {
         }else{
             customerArrayList = DataStorage.getInstance().getAllCustomers();}
 
-      //  customerArrayList.add();
 
     }
 

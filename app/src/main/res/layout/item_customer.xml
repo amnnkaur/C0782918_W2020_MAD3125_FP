@@ -17,10 +17,10 @@
     android:layout_height="match_parent">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="401dp"
-        android:layout_height="151dp"
-        app:cardBackgroundColor="#ECDFCB"
+        android:layout_width="406dp"
+        android:layout_height="111dp"
         app:cardCornerRadius="25dp"
+        app:cardBackgroundColor="#ECDFCB"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -50,6 +50,7 @@
                     android:gravity="center_horizontal"
                     android:text="@{Customer.fullName}"
                     android:textAlignment="center"
+                    android:textColor="#2B0000"
                     android:textSize="18sp" />
 
                 <TextView
@@ -61,17 +62,7 @@
                     android:gravity="center_horizontal"
                     android:text="@{Customer.email}"
                     android:textAlignment="center"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:id="@+id/textViewBill"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:gravity="end"
-                    android:text="@{StringUtil.convertDoubleToString(Customer.totalBill)}"
-                    android:textAlignment="viewEnd"
+                    android:textColor="#2B0000"
                     android:textSize="18sp" />
 
 
