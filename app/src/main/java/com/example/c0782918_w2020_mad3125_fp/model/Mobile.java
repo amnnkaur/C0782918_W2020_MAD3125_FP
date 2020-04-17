@@ -20,6 +20,13 @@ public class Mobile extends Bill {
         this.minuteUsed = minuteUsed;
     }
 
+    @Override
+    public Double getBillTotal() {
+        double billTotal = 0.0;
+        billTotal = 4.0 * (this.internetUsed) + 2.0 * (this.minuteUsed);
+        return billTotal;
+    }
+
     public String getMobileManfName() {
         return mobileManfName;
     }
