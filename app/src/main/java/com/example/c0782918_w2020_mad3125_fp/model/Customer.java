@@ -2,6 +2,8 @@ package com.example.c0782918_w2020_mad3125_fp.model;
 
 import java.io.Serializable;
 import java.lang.reflect.Array;
+import java.util.HashMap;
+
 public class Customer implements Serializable {
     private int customerID;
     private int customerImage;
@@ -12,6 +14,7 @@ public class Customer implements Serializable {
     private String phoneNumber;
     private String gender;
     private String birthDate;
+    private HashMap<String, Bill> billHashMap;
     private Double totalBill;
 
 
@@ -86,9 +89,9 @@ public class Customer implements Serializable {
     }
 
 
-    /*public void addBill(String billId, Bill bill){
-
-        this.totalBill
-
-    }*/
+    public void addBillToCustomer(Bill billObj)
+    {
+        billHashMap = new HashMap<>();
+        billHashMap.put(billObj.getBillID(),billObj);
+    }
 }
