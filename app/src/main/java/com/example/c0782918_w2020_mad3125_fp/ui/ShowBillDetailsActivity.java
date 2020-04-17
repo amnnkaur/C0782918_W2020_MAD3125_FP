@@ -2,31 +2,47 @@ package com.example.c0782918_w2020_mad3125_fp.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.c0782918_w2020_mad3125_fp.R;
+import com.example.c0782918_w2020_mad3125_fp.adapter.HydroAdapter;
+import com.example.c0782918_w2020_mad3125_fp.adapter.InternetAdapter;
+import com.example.c0782918_w2020_mad3125_fp.adapter.MobileAdapter;
 import com.example.c0782918_w2020_mad3125_fp.adapter.PagerAdapter;
 import com.example.c0782918_w2020_mad3125_fp.databinding.ActivityShowBillDetailsBinding;
 import com.example.c0782918_w2020_mad3125_fp.model.Customer;
+import com.example.c0782918_w2020_mad3125_fp.model.Hydro;
+import com.example.c0782918_w2020_mad3125_fp.model.Internet;
+import com.example.c0782918_w2020_mad3125_fp.model.Mobile;
 import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
+
+import java.util.ArrayList;
 
 public class ShowBillDetailsActivity extends AppCompatActivity {
 
     ActivityShowBillDetailsBinding showBillDetailsBinding;
 
+    private HydroAdapter hydroAdapter;
+    private InternetAdapter internetAdapter;
+    private MobileAdapter mobileAdapter;
     public PagerAdapter pagerAdapter;
 
-    Bundle fetch;
+    private ArrayList<Hydro> hydroArrayList;
+    private ArrayList<Mobile> mobileArrayList;
+    private ArrayList<Internet> internetArrayList;
 
+    Bundle fetch;
     Customer object;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         showBillDetailsBinding = DataBindingUtil.setContentView(this, R.layout.activity_show_bill_details);
+
 
         Intent myIntent = getIntent();
         fetch = myIntent.getBundleExtra("object");
