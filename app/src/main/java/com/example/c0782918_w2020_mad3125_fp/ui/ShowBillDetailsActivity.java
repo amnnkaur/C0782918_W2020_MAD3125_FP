@@ -71,6 +71,10 @@ public class ShowBillDetailsActivity extends AppCompatActivity {
         mFragmentTransaction.add(R.id.fragment2, cusHydro, "HYDRO");
         mFragmentTransaction.commit();
 
+       showBillDetailsBinding.tabCusBills.addTab(showBillDetailsBinding.tabCusBills.newTab().setText("HYDRO"),true);
+       showBillDetailsBinding.tabCusBills.addTab(showBillDetailsBinding.tabCusBills.newTab().setText("INTERNET"));
+       showBillDetailsBinding.tabCusBills.addTab(showBillDetailsBinding.tabCusBills.newTab().setText("MOBILE"));
+
 
 
         showBillDetailsBinding.tabCusBills.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
