@@ -75,9 +75,7 @@ public class ShowBillDetailsActivity extends AppCompatActivity {
        showBillDetailsBinding.tabCusBills.addTab(showBillDetailsBinding.tabCusBills.newTab().setText("INTERNET"));
        showBillDetailsBinding.tabCusBills.addTab(showBillDetailsBinding.tabCusBills.newTab().setText("MOBILE"));
 
-
-
-        showBillDetailsBinding.tabCusBills.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+       showBillDetailsBinding.tabCusBills.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
 

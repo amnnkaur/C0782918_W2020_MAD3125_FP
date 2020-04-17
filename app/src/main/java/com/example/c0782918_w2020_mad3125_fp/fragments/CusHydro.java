@@ -40,26 +40,21 @@ public class CusHydro extends Fragment {
     public CusHydro() {
         // Required empty public constructor
     }
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_cus_hydro,container,false);
-        return view ;
-    }
-
-    @RequiresApi(api = Build.VERSION_CODES.O)
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
         Toast.makeText(getContext(),"HydroFrag",Toast.LENGTH_SHORT).show();
         hydroAdapter = new HydroAdapter(hydroArrayList);
         cusHydroBinding.rvCusHydro.setLayoutManager(new LinearLayoutManager(getActivity()));
         cusHydroBinding.rvCusHydro.setAdapter(hydroAdapter);
         DataStorage.getInstance().loadData();
         populateHydroBill();
+        return view ;
     }
+
 
     public void populateHydroBill(){
         hydroArrayList = new ArrayList<>();

@@ -42,25 +42,19 @@ public class CusMobile extends Fragment {
     }
 
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_cus_mobile,container,false);
-        return view;
-    }
-
-    @RequiresApi(api = Build.VERSION_CODES.O)
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
         Toast.makeText(getContext(),"MobileFrag",Toast.LENGTH_SHORT).show();
         mobileAdapter = new MobileAdapter(mobileArrayList);
         cusMobileBinding.rvCusMobile.setLayoutManager(new LinearLayoutManager(getActivity()));
         cusMobileBinding.rvCusMobile.setAdapter(mobileAdapter);
         DataStorage.getInstance().loadData();
         populateMobileBill();
+        return view;
     }
 
     public void populateMobileBill(){
