@@ -10,14 +10,15 @@ public class Mobile extends Bill {
     private int internetUsed;
     private int minuteUsed;
 
-    public Mobile(String billID, BillType billType, Date billDate, Double billTotal, String mobileManfName, String planName, String mobileNumber, int internetUsed, int minuteUsed) {
-        super(billID, billType, billDate, billTotal);
+    public Mobile(String billID, BillType billType, Date billDate, String mobileManfName, String planName, String mobileNumber, int internetUsed, int minuteUsed) {
+        super(billID, billType, billDate);
 
         this.mobileManfName = mobileManfName;
         this.planName = planName;
         this.mobileNumber = mobileNumber;
         this.internetUsed = internetUsed;
         this.minuteUsed = minuteUsed;
+        this.billTotal = getBillTotal();
     }
 
     @Override

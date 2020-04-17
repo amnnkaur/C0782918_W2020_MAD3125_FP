@@ -8,13 +8,13 @@ public abstract class Bill implements Serializable {
     String billID;
     BillType billType;
     Date billDate;
-    Double billTotal;
+   Double billTotal= 0.0;
 
-    public Bill(String billID, BillType billType, Date billDate, Double billTotal) {
+    public Bill(String billID, BillType billType, Date billDate/*, Double billTotal*/) {
         this.billID = billID;
         this.billType = billType;
         this.billDate = billDate;
-        this.billTotal = billTotal;
+       // this.billTotal = billTotal;
     }
 
     public String getBillID() {

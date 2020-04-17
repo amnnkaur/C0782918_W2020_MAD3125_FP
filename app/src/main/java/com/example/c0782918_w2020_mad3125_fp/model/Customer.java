@@ -2,10 +2,12 @@ package com.example.c0782918_w2020_mad3125_fp.model;
 
 import java.io.Serializable;
 import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 
 public class Customer implements Serializable {
-    private int customerID;
+    private String customerID;
     private int customerImage;
     private String firstName;
     private String lastName;
@@ -18,7 +20,7 @@ public class Customer implements Serializable {
     private Double totalBill;
 
 
-    public Customer(int customerID, int customerImage, String firstName, String lastName, String email, String phoneNumber) {
+    public Customer(String customerID, int customerImage, String firstName, String lastName, String email, String phoneNumber) {
         this.customerID = customerID;
         this.customerImage = customerImage;
         this.firstName = firstName;
@@ -27,10 +29,10 @@ public class Customer implements Serializable {
         this.phoneNumber = phoneNumber;
 
     }
-    public int getCustomerID() {
+    public String getCustomerID() {
         return customerID;
     }
-    public void setCustomerID(int customerID) {
+    public void setCustomerID(String customerID) {
         this.customerID = customerID;
     }
     public String getFirstName() {
@@ -88,10 +90,34 @@ public class Customer implements Serializable {
         this.birthDate = birthDate;
     }
 
+    public HashMap<String, Bill> getBillHashMap() {
+        return billHashMap;
+    }
+
+    public void setBillHashMap(HashMap<String, Bill> billHashMap) {
+        this.billHashMap = billHashMap;
+    }
 
     public void addBillToCustomer(Bill billObj)
     {
         billHashMap = new HashMap<>();
         billHashMap.put(billObj.getBillID(),billObj);
+    }
+
+    public ArrayList<Bill> getAllBills()
+    {
+        Collection<Bill> values = billHashMap.values();
+        ArrayList<Bill> billsList = new ArrayList<>(values);
+        return billsList;
+    }
+
+    public double getTotalBillAmount()
+    {
+        double totalCalculatedBill = 0.0;
+        for (Bill bill : billHashMap.values())
+        {
+            totalCalculatedBill += bill.billTotal;
+        }
+        return totalCalculatedBill;
     }
 }
