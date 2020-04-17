@@ -84,4 +84,11 @@ public class Customer implements Serializable {
     public void setBirthDate(String birthDate) {
         this.birthDate = birthDate;
     }
+
+
+    /*public void addBill(String billId, Bill bill){
+
+        this.totalBill
+
+    }*/
 }

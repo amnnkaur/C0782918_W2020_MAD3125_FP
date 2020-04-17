@@ -8,6 +8,7 @@
             name="Customer"
             type="com.example.c0782918_w2020_mad3125_fp.model.Customer" />
 
+        <import type="com.example.c0782918_w2020_mad3125_fp.util.StringUtil"/>
     </data>
 
 <androidx.constraintlayout.widget.ConstraintLayout
@@ -46,7 +47,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@{Customer.customerID}" />
+                android:text="@{StringUtil.convertIntToString(Customer.customerID)}" />
         </LinearLayout>
 
         <LinearLayout

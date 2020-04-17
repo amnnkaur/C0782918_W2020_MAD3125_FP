@@ -65,8 +65,13 @@ public class DataStorage {
         this.customerArrayList.add(new Customer(6, R.drawable.male,"Kritima","Kukreja","kritima@gmail.com","854546768"));
         this.customerArrayList.add(new Customer(7, R.drawable.male,"Harpreet","Singh","harpreet@gmail.com","8755456468"));
 
+      //  Customer cus1 = new Customer(1,R.drawable.male,"Aman","Kaur","aman@gmail.com","134566");
+
+
         Hydro hyd1 = new Hydro("HYD1",BillType.HYDRO,Date.from(Instant.now()),40.25,"qwerty",20);
         this.hydroArrayList.add(hyd1);
+
+        //cus1.add
 
     }
 }
