@@ -73,7 +73,7 @@ public class ShowBillDetailsActivity extends AppCompatActivity {
 
 
 
-        showBillDetailsBinding.tabCusBills.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+        showBillDetailsBinding.tabCusBills.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
 
