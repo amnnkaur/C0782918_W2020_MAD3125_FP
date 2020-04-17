@@ -99,7 +99,7 @@ public class ShowBillDetailsActivity extends AppCompatActivity {
                     mFragmentTransaction.replace(R.id.fragment2, cusMobile);
 
                 }
-
+                mFragmentTransaction.commit();
             }
 
             @Override
