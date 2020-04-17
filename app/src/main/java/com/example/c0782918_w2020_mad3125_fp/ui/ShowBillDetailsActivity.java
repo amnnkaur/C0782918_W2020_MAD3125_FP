@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.example.c0782918_w2020_mad3125_fp.R;
 import com.example.c0782918_w2020_mad3125_fp.adapter.HydroAdapter;
@@ -59,12 +60,15 @@ public class ShowBillDetailsActivity extends AppCompatActivity {
 
                 showBillDetailsBinding.vpBills.setCurrentItem(tab.getPosition());
                 if(tab.getPosition() == 0){
+                    Toast.makeText(ShowBillDetailsActivity.this, "Hydro", Toast.LENGTH_SHORT).show();
                     pagerAdapter.notifyDataSetChanged();
                 }
                 else if(tab.getPosition() == 1){
+                    Toast.makeText(ShowBillDetailsActivity.this, "Internet", Toast.LENGTH_SHORT).show();
                     pagerAdapter.notifyDataSetChanged();
                 }
                 else if(tab.getPosition() == 2){
+                    Toast.makeText(ShowBillDetailsActivity.this, "Mobile", Toast.LENGTH_SHORT).show();
                     pagerAdapter.notifyDataSetChanged();
                 }
 
