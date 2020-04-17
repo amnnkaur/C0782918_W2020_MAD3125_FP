@@ -3,6 +3,8 @@ package com.example.c0782918_w2020_mad3125_fp.fragments;
 import android.os.Build;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
@@ -37,22 +39,24 @@ public class CusHydro extends Fragment {
     public CusHydro() {
         // Required empty public constructor
     }
-
-
-    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_cus_hydro,container,false);
+        return view ;
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
         hydroAdapter = new HydroAdapter(hydroArrayList);
         cusHydroBinding.rvCusHydro.setLayoutManager(new LinearLayoutManager(getActivity()));
         cusHydroBinding.rvCusHydro.setAdapter(hydroAdapter);
         DataStorage.getInstance().loadData();
         populateHydroBill();
-
-
-        return view ;
     }
 
     public void populateHydroBill(){

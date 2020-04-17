@@ -3,6 +3,8 @@ package com.example.c0782918_w2020_mad3125_fp.fragments;
 import android.os.Build;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
@@ -35,20 +37,24 @@ public class CusInternet extends Fragment {
         // Required empty public constructor
     }
 
-
-    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_cus_internet,container,false);
+        return view;
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
         internetAdapter = new InternetAdapter(internetArrayList);
         cusInternetBinding.rvCusInternet.setLayoutManager(new LinearLayoutManager(getActivity()));
         cusInternetBinding.rvCusInternet.setAdapter(internetAdapter);
         DataStorage.getInstance().loadData();
         populateInternetBill();
-
-        return view;
     }
 
     public void populateInternetBill(){
