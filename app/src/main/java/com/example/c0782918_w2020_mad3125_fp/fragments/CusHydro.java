@@ -42,8 +42,9 @@ public class CusHydro extends Fragment {
         fragmentCusHydroBinding.rvCusHydro.setAdapter(hydroAdapter);
         DataStorage.getInstance().loadData();
         populateHydroBill();
+        View view = fragmentCusHydroBinding.getRoot();
 
-        return inflater.inflate(R.layout.fragment_cus_hydro, container, false);
+        return view;
     }
 
     public void populateHydroBill(){

@@ -56,6 +56,10 @@ public class ShowBillDetailsActivity extends AppCompatActivity {
 
         showBillDetailsBinding.setCustomer(object);
 
+        hydroAdapter = new HydroAdapter(hydroArrayList);
+        internetAdapter = new InternetAdapter(internetArrayList);
+        mobileAdapter = new MobileAdapter(mobileArrayList);
+
         FragmentManager mFragmentManager = getSupportFragmentManager();
         CusHydro cusHydro = new CusHydro();
         FragmentTransaction mFragmentTransaction = mFragmentManager.beginTransaction();

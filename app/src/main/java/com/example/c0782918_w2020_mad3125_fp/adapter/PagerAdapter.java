@@ -29,12 +29,9 @@ public class PagerAdapter extends FragmentPagerAdapter {
             case 1:
                 return new CusInternet();
             case 2:
-                return  new CusMobile();
-
-            default:
-                return null;
-
+                return new CusMobile();
         }
+        return null;
 
     }
 
