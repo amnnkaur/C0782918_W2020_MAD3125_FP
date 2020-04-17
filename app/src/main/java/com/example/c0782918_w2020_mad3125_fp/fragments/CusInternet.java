@@ -50,6 +50,7 @@ public class CusInternet extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        Toast.makeText(getContext(),"InternetFrag",Toast.LENGTH_SHORT).show();
         internetAdapter = new InternetAdapter(internetArrayList);
         cusInternetBinding.rvCusInternet.setLayoutManager(new LinearLayoutManager(getActivity()));
         cusInternetBinding.rvCusInternet.setAdapter(internetAdapter);

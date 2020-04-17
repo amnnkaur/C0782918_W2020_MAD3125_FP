@@ -23,6 +23,7 @@ import com.example.c0782918_w2020_mad3125_fp.databinding.FragmentCusHydroBinding
 import com.example.c0782918_w2020_mad3125_fp.model.Hydro;
 import com.example.c0782918_w2020_mad3125_fp.singleton.DataStorage;
 import com.example.c0782918_w2020_mad3125_fp.ui.CustomerListActivity;
+import com.example.c0782918_w2020_mad3125_fp.ui.ShowBillDetailsActivity;
 
 import java.util.ArrayList;
 import java.util.zip.Inflater;
@@ -52,6 +53,7 @@ public class CusHydro extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        Toast.makeText(getContext(),"HydroFrag",Toast.LENGTH_SHORT).show();
         hydroAdapter = new HydroAdapter(hydroArrayList);
         cusHydroBinding.rvCusHydro.setLayoutManager(new LinearLayoutManager(getActivity()));
         cusHydroBinding.rvCusHydro.setAdapter(hydroAdapter);

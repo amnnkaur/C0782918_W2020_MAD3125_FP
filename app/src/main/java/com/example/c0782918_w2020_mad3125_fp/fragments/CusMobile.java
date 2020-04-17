@@ -55,6 +55,7 @@ public class CusMobile extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        Toast.makeText(getContext(),"MobileFrag",Toast.LENGTH_SHORT).show();
         mobileAdapter = new MobileAdapter(mobileArrayList);
         cusMobileBinding.rvCusMobile.setLayoutManager(new LinearLayoutManager(getActivity()));
         cusMobileBinding.rvCusMobile.setAdapter(mobileAdapter);
