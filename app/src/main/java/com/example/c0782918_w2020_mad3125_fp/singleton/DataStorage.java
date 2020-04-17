@@ -13,13 +13,14 @@ import com.example.c0782918_w2020_mad3125_fp.model.Mobile;
 
 import java.time.Instant;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
 
 public class DataStorage {
     static private DataStorage instance = new DataStorage();
     private HashMap<String, Customer> customerHashMap = new HashMap<>();
-    private ArrayList<Customer> customerArrayList = new ArrayList<>();
+    private ArrayList<Customer> customerArrayList;
     private ArrayList<Hydro> hydroArrayList = new ArrayList<>();
     private ArrayList<Mobile> mobileArrayList = new ArrayList<>();
     private ArrayList<Internet> internetArrayList = new ArrayList<>();
@@ -77,7 +78,6 @@ public class DataStorage {
         Customer cus5 = new Customer("CUS05",R.drawable.male,"Jas","Kaur","jas@gmail.com","866526768");
         Customer cus6 = new Customer("CUS06",R.drawable.male,"Harpreet","Singh","harpreet@gmail.com","8755456468");
 
-
         Hydro hyd1 = new Hydro("HYD1",BillType.HYDRO,Date.from(Instant.now()),"qwerty",20);
         Hydro hyd2 = new Hydro("HYD2",BillType.HYDRO,Date.from(Instant.now()),"qwerty",10);
         Hydro hyd3 = new Hydro("HYD3",BillType.HYDRO,Date.from(Instant.now()),"qwerty",50);
@@ -119,6 +119,9 @@ public class DataStorage {
         customerHashMap.put(cus4.getCustomerID(),cus4);
         customerHashMap.put(cus5.getCustomerID(),cus5);
         customerHashMap.put(cus6.getCustomerID(),cus6);
+
+        Collection<Customer> values = customerHashMap.values();
+        this.customerArrayList = new ArrayList<>(values);
 
     }
 }
