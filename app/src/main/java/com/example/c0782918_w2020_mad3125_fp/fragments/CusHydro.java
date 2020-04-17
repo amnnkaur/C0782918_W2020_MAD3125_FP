@@ -6,7 +6,10 @@ import android.os.Bundle;
 import androidx.annotation.RequiresApi;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,10 +23,12 @@ import com.example.c0782918_w2020_mad3125_fp.singleton.DataStorage;
 import com.example.c0782918_w2020_mad3125_fp.ui.CustomerListActivity;
 
 import java.util.ArrayList;
+import java.util.zip.Inflater;
 
 
 public class CusHydro extends Fragment {
 
+    View view;
     private HydroAdapter hydroAdapter;
     private ArrayList<Hydro> hydroArrayList;
 
@@ -37,14 +42,17 @@ public class CusHydro extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+
+
         FragmentCusHydroBinding fragmentCusHydroBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_cus_hydro,container, false);
         hydroAdapter = new HydroAdapter(hydroArrayList);
+        fragmentCusHydroBinding.rvCusHydro.setLayoutManager(new LinearLayoutManager(getActivity()));
         fragmentCusHydroBinding.rvCusHydro.setAdapter(hydroAdapter);
         DataStorage.getInstance().loadData();
         populateHydroBill();
-        View view = fragmentCusHydroBinding.getRoot();
 
-        return view;
+
+        return inflater.inflate(R.layout.fragment_cus_hydro, container, false) ;
     }
 
     public void populateHydroBill(){
