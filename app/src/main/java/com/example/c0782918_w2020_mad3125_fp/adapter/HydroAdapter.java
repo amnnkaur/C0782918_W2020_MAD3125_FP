@@ -54,6 +54,7 @@ public class HydroAdapter extends RecyclerView.Adapter<HydroAdapter.HydroViewHol
 
         public HydroViewHolder(@NonNull ItemHydroBinding itemView) {
             super(itemView.getRoot());
+            this.itemHydroBinding = itemView;
         }
     }
 }

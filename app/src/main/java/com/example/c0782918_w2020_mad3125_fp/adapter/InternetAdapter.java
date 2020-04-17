@@ -54,6 +54,7 @@ public class InternetAdapter  extends RecyclerView.Adapter<InternetAdapter.Inter
         ItemInternetBinding itemInternetBinding;
         public InternetViewHolder(@NonNull ItemInternetBinding itemView) {
             super(itemView.getRoot());
+            this.itemInternetBinding = itemView;
         }
     }
 }

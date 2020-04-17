@@ -55,6 +55,7 @@ public class MobileAdapter extends RecyclerView.Adapter<MobileAdapter.MobileView
         ItemMobileBinding itemMobileBinding;
         public MobileViewHolder(@NonNull ItemMobileBinding itemView) {
             super(itemView.getRoot());
+            this.itemMobileBinding = itemView;
         }
     }
 }
