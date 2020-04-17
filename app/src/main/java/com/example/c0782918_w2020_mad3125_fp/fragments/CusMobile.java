@@ -28,9 +28,12 @@ import java.util.ArrayList;
  * A simple {@link Fragment} subclass.
  */
 public class CusMobile extends Fragment {
+    View view;
 
     private MobileAdapter mobileAdapter;
     private ArrayList<Mobile> mobileArrayList;
+
+    FragmentCusMobileBinding cusMobileBinding;
 
     public CusMobile() {
         // Required empty public constructor
@@ -42,17 +45,14 @@ public class CusMobile extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        FragmentCusMobileBinding cusMobileBinding = DataBindingUtil.inflate(inflater,R.layout.fragment_cus_mobile,container,false);
-
-        cusMobileBinding.rvCusMobile.setLayoutManager(new LinearLayoutManager(getActivity()));
-
+        view = inflater.inflate(R.layout.fragment_cus_mobile,container,false);
         mobileAdapter = new MobileAdapter(mobileArrayList);
         cusMobileBinding.rvCusMobile.setLayoutManager(new LinearLayoutManager(getActivity()));
         cusMobileBinding.rvCusMobile.setAdapter(mobileAdapter);
         DataStorage.getInstance().loadData();
         populateMobileBill();
 
-        return inflater.inflate(R.layout.fragment_cus_mobile, container, false);
+        return view;
     }
 
     public void populateMobileBill(){

@@ -32,6 +32,8 @@ public class CusHydro extends Fragment {
     private HydroAdapter hydroAdapter;
     private ArrayList<Hydro> hydroArrayList;
 
+    FragmentCusHydroBinding cusHydroBinding;
+
     public CusHydro() {
         // Required empty public constructor
     }
@@ -42,17 +44,15 @@ public class CusHydro extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-
-
-        FragmentCusHydroBinding fragmentCusHydroBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_cus_hydro,container, false);
+        view = inflater.inflate(R.layout.fragment_cus_hydro,container,false);
         hydroAdapter = new HydroAdapter(hydroArrayList);
-        fragmentCusHydroBinding.rvCusHydro.setLayoutManager(new LinearLayoutManager(getActivity()));
-        fragmentCusHydroBinding.rvCusHydro.setAdapter(hydroAdapter);
+        cusHydroBinding.rvCusHydro.setLayoutManager(new LinearLayoutManager(getActivity()));
+        cusHydroBinding.rvCusHydro.setAdapter(hydroAdapter);
         DataStorage.getInstance().loadData();
         populateHydroBill();
 
 
-        return inflater.inflate(R.layout.fragment_cus_hydro, container, false) ;
+        return view ;
     }
 
     public void populateHydroBill(){

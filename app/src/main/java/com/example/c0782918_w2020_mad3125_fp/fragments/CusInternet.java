@@ -25,8 +25,11 @@ import java.util.ArrayList;
  * A simple {@link Fragment} subclass.
  */
 public class CusInternet extends Fragment {
+    View view;
     private InternetAdapter internetAdapter;
     private ArrayList<Internet> internetArrayList;
+
+    FragmentCusInternetBinding cusInternetBinding;
 
     public CusInternet() {
         // Required empty public constructor
@@ -38,15 +41,14 @@ public class CusInternet extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        FragmentCusInternetBinding cusInternetBinding = DataBindingUtil.inflate(inflater,R.layout.fragment_cus_internet,container,false);
-
+        view = inflater.inflate(R.layout.fragment_cus_internet,container,false);
         internetAdapter = new InternetAdapter(internetArrayList);
         cusInternetBinding.rvCusInternet.setLayoutManager(new LinearLayoutManager(getActivity()));
         cusInternetBinding.rvCusInternet.setAdapter(internetAdapter);
         DataStorage.getInstance().loadData();
         populateInternetBill();
 
-        return inflater.inflate(R.layout.fragment_cus_internet, container, false);
+        return view;
     }
 
     public void populateInternetBill(){
