@@ -61,10 +61,10 @@ public class ShowBillDetailsActivity extends AppCompatActivity {
         mobileAdapter = new MobileAdapter(mobileArrayList);
 */
 
-        setupViewPager(showBillDetailsBinding.vpBills);
+        /*setupViewPager(showBillDetailsBinding.vpBills);
         showBillDetailsBinding.vpBills.setAdapter(pagerAdapter);
         showBillDetailsBinding.tabCusBills.setupWithViewPager(showBillDetailsBinding.vpBills);
-
+*/
         FragmentManager mFragmentManager = getSupportFragmentManager();
         CusHydro cusHydro = new CusHydro();
         FragmentTransaction mFragmentTransaction = mFragmentManager.beginTransaction();
@@ -80,29 +80,33 @@ public class ShowBillDetailsActivity extends AppCompatActivity {
                 FragmentManager mFragmentManager = getSupportFragmentManager();
                 FragmentTransaction mFragmentTransaction = mFragmentManager.beginTransaction();
 
-
                 showBillDetailsBinding.vpBills.setCurrentItem(tab.getPosition());
                 if(tab.getPosition() == 0){
                     CusHydro cusHydro = new CusHydro();
                     Toast.makeText(ShowBillDetailsActivity.this, "Hydro", Toast.LENGTH_SHORT).show();
-                    pagerAdapter.AddFragment(new CusHydro(),"HYDRO");
-                    pagerAdapter.notifyDataSetChanged();
-                    mFragmentTransaction.replace(R.id.fragment2, cusHydro);
+                    getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.fragment2, cusHydro).commit();
+                   /* pagerAdapter.AddFragment(cusHydro,"HYDRO");
+                    pagerAdapter.notifyDataSetChanged();*/
 
                 }
                 else if(tab.getPosition() == 1){
                     CusInternet cusInternet = new CusInternet();
                     Toast.makeText(ShowBillDetailsActivity.this, "Internet", Toast.LENGTH_SHORT).show();
-                    pagerAdapter.AddFragment(new CusInternet(),"INTERNET");
+                    getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.fragment2, cusInternet).commit();
+                   /* pagerAdapter.AddFragment(new CusInternet(),"INTERNET");
                     pagerAdapter.notifyDataSetChanged();
-                    mFragmentTransaction.replace(R.id.fragment2, cusInternet);
+                    mFragmentTransaction.replace(R.id.fragment2, cusInternet);*/
                 }
                 else if(tab.getPosition() == 2){
                     CusMobile cusMobile = new CusMobile();
                     Toast.makeText(ShowBillDetailsActivity.this, "Mobile", Toast.LENGTH_SHORT).show();
-                    pagerAdapter.AddFragment(new CusMobile(),"MOBILE");
+                    getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.fragment2, cusMobile).commit();
+                    /*pagerAdapter.AddFragment(new CusMobile(),"MOBILE");
                     pagerAdapter.notifyDataSetChanged();
-                    mFragmentTransaction.replace(R.id.fragment2, cusMobile);
+                    mFragmentTransaction.replace(R.id.fragment2, cusMobile);*/
 
                 }
                 mFragmentTransaction.commit();
@@ -120,16 +124,16 @@ public class ShowBillDetailsActivity extends AppCompatActivity {
         });
 
 
-        showBillDetailsBinding.vpBills.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(showBillDetailsBinding.tabCusBills));
+        //showBillDetailsBinding.vpBills.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(showBillDetailsBinding.tabCusBills));
     }
 
-    private void setupViewPager(ViewPager viewPager) {
+    /*private void setupViewPager(ViewPager viewPager) {
         PagerAdapter adapter = new PagerAdapter(getSupportFragmentManager());
         adapter.AddFragment(new CusHydro(), "HYDRO");
         adapter.AddFragment(new CusInternet(),"INTERNET");
         adapter.AddFragment(new CusMobile(),"MOBILE");
         viewPager.setAdapter(adapter);
     }
-
+*/
 
 }

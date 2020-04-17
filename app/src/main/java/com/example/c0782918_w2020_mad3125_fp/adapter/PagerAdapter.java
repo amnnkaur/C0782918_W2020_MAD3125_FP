@@ -54,6 +54,7 @@ public class PagerAdapter extends FragmentPagerAdapter {
         return titleList.get(position);
     }
 
+
     public void AddFragment(Fragment fragment, String title){
 
         fragmentList.add(fragment);
