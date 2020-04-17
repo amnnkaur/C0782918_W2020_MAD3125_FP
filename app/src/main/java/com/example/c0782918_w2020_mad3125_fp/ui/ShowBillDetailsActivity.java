@@ -68,7 +68,7 @@ public class ShowBillDetailsActivity extends AppCompatActivity {
         FragmentManager mFragmentManager = getSupportFragmentManager();
         CusHydro cusHydro = new CusHydro();
         FragmentTransaction mFragmentTransaction = mFragmentManager.beginTransaction();
-        mFragmentTransaction.add(R.id.fragment2, cusHydro, "HYDRO");
+        mFragmentTransaction.add(R.id.fragment_2, cusHydro, "HYDRO");
         mFragmentTransaction.commit();
 
        showBillDetailsBinding.tabCusBills.addTab(showBillDetailsBinding.tabCusBills.newTab().setText("HYDRO"),true);
@@ -87,7 +87,7 @@ public class ShowBillDetailsActivity extends AppCompatActivity {
                     CusHydro cusHydro = new CusHydro();
                     Toast.makeText(ShowBillDetailsActivity.this, "Hydro", Toast.LENGTH_SHORT).show();
                     getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.fragment2, cusHydro).commit();
+                            .replace(R.id.fragment_2, cusHydro).commit();
                    /* pagerAdapter.AddFragment(cusHydro,"HYDRO");
                     pagerAdapter.notifyDataSetChanged();*/
 
@@ -96,7 +96,7 @@ public class ShowBillDetailsActivity extends AppCompatActivity {
                     CusInternet cusInternet = new CusInternet();
                     Toast.makeText(ShowBillDetailsActivity.this, "Internet", Toast.LENGTH_SHORT).show();
                     getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.fragment2, cusInternet).commit();
+                            .replace(R.id.fragment_2, cusInternet).commit();
                    /* pagerAdapter.AddFragment(new CusInternet(),"INTERNET");
                     pagerAdapter.notifyDataSetChanged();
                     mFragmentTransaction.replace(R.id.fragment2, cusInternet);*/
@@ -105,7 +105,7 @@ public class ShowBillDetailsActivity extends AppCompatActivity {
                     CusMobile cusMobile = new CusMobile();
                     Toast.makeText(ShowBillDetailsActivity.this, "Mobile", Toast.LENGTH_SHORT).show();
                     getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.fragment2, cusMobile).commit();
+                            .replace(R.id.fragment_2, cusMobile).commit();
                     /*pagerAdapter.AddFragment(new CusMobile(),"MOBILE");
                     pagerAdapter.notifyDataSetChanged();
                     mFragmentTransaction.replace(R.id.fragment2, cusMobile);*/
