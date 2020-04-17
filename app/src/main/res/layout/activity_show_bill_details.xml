@@ -2,6 +2,14 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="Customer"
+            type="com.example.c0782918_w2020_mad3125_fp.model.Customer" />
+
+    </data>
+
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -38,7 +46,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:text="@{Customer.customerID}" />
         </LinearLayout>
 
         <LinearLayout
@@ -61,7 +69,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:text="@{Customer.firstName}" />
         </LinearLayout>
 
         <LinearLayout
@@ -84,7 +92,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:text="@{Customer.lastName}" />
         </LinearLayout>
 
         <LinearLayout
@@ -107,7 +115,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:text="@{Customer.email}" />
         </LinearLayout>
 
         <LinearLayout
@@ -130,7 +138,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:text="@{Customer.phoneNumber}" />
         </LinearLayout>
 
     </LinearLayout>
@@ -161,6 +169,21 @@
             android:layout_height="wrap_content"
             android:text="Mobile" />
     </com.google.android.material.tabs.TabLayout>
+
+    <fragment
+        android:id="@+id/fragment2"
+        android:name="com.example.c0782918_w2020_mad3125_fp.fragments.CusHydro"
+        android:layout_width="413dp"
+        android:layout_height="464dp"
+        android:layout_marginTop="3dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tabCusBills" />
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/vpBills"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
