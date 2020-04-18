@@ -74,4 +74,10 @@ public class ShowBillDetailsActivity extends AppCompatActivity {
         });
 
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(ShowBillDetailsActivity.this,CustomerListActivity.class);
+        startActivity(intent);
+    }
 }
