@@ -34,7 +34,7 @@ public class MobileAdapter extends RecyclerView.Adapter<MobileAdapter.MobileView
         View mView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_mobile,
                 parent,
                 false);
-        MobileAdapter.MobileViewHolder mobileViewHolder = new MobileAdapter.MobileViewHolder(mView);
+       MobileViewHolder mobileViewHolder = new MobileAdapter.MobileViewHolder(mView);
 
         return mobileViewHolder;
 
@@ -72,13 +72,13 @@ public class MobileAdapter extends RecyclerView.Adapter<MobileAdapter.MobileView
         public MobileViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            id = itemView.findViewById(R.id.txtHydBillID);
-            date = itemView.findViewById(R.id.txtHydBillDate);
+            id = itemView.findViewById(R.id.txtMobBillID);
+            date = itemView.findViewById(R.id.txtMobBillDate);
             mobileManfName = itemView.findViewById(R.id.txtManf);
             planName = itemView.findViewById(R.id.txtPlanName);
             internetGBUsed = itemView.findViewById(R.id.txtMobIntGB);
             minutesUsed = itemView.findViewById(R.id.txtMinutes);
-            amount = itemView.findViewById(R.id.txtHydBillAmount);
+            amount = itemView.findViewById(R.id.txtMobileBillAmount);
         }
     }
 }

@@ -35,7 +35,7 @@ public class InternetAdapter  extends RecyclerView.Adapter<InternetAdapter.Inter
         View mView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_internet,
                 parent,
                 false);
-        InternetAdapter.InternetViewHolder internetViewHolder = new InternetAdapter.InternetViewHolder(mView);
+        InternetViewHolder internetViewHolder = new InternetAdapter.InternetViewHolder(mView);
 
         return internetViewHolder;
 
@@ -69,11 +69,11 @@ public class InternetAdapter  extends RecyclerView.Adapter<InternetAdapter.Inter
         public InternetViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            id = itemView.findViewById(R.id.txtHydBillID);
-            date = itemView.findViewById(R.id.txtHydBillDate);
+            id = itemView.findViewById(R.id.txtIntBillID);
+            date = itemView.findViewById(R.id.txtIntBillDate);
             providerName = itemView.findViewById(R.id.txtProviderName);
             internetGBUsed = itemView.findViewById(R.id.txtInternetGB);
-            amount = itemView.findViewById(R.id.txtHydBillAmount);
+            amount = itemView.findViewById(R.id.txtInternetBillAmount);
         }
     }
 }
