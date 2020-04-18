@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 import com.example.c0782918_w2020_mad3125_fp.R;
+import com.example.c0782918_w2020_mad3125_fp.adapter.HydAdapter;
 import com.example.c0782918_w2020_mad3125_fp.adapter.HydroAdapter;
 import com.example.c0782918_w2020_mad3125_fp.databinding.FragmentCusHydroBinding;
 import com.example.c0782918_w2020_mad3125_fp.model.Hydro;
@@ -24,7 +25,7 @@ import java.util.ArrayList;
 import java.util.zip.Inflater;
 import static androidx.recyclerview.widget.LinearLayoutManager.*;
 public class CusHydro extends Fragment {
-    private HydroAdapter hydroAdapter;
+    private HydAdapter hydroAdapter;
     private ArrayList<Hydro> hydroArrayList;
     FragmentCusHydroBinding cusHydroBinding;
     private RecyclerView hydroRV;
@@ -37,7 +38,6 @@ public class CusHydro extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_cus_hydro,container,false);
-
         return view ;
     }
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -61,7 +61,7 @@ public class CusHydro extends Fragment {
         }else{
             Toast.makeText(getContext(),String.valueOf(DataStorage.getInstance().getAllHydro().get(2).getBillID()),Toast.LENGTH_SHORT).show();
             hydroArrayList = DataStorage.getInstance().getAllHydro();
-            hydroAdapter = new HydroAdapter(hydroArrayList);
+            hydroAdapter = new HydAdapter(hydroArrayList);
 //            hydroRV.setLayoutManager();
             hydroRV.setAdapter(hydroAdapter);
         }

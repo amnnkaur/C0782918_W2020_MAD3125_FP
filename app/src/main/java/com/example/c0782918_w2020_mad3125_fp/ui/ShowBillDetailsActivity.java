@@ -75,12 +75,12 @@ public class ShowBillDetailsActivity extends AppCompatActivity {
                         mFragmentTransaction.replace(R.id.fragment_2, fragValue);
                         break;
                     case 1:
-                        fragValue = new CusHydro();
-                        mFragmentTransaction.replace(R.id.fragment_2, fragValue);
+//                        fragValue = new CusHydro();
+//                        mFragmentTransaction.replace(R.id.fragment_2, fragValue);
                         break;
                     case 2:
-                        fragValue = new CusHydro();
-                        mFragmentTransaction.replace(R.id.fragment_2, fragValue);
+//                        fragValue = new CusHydro();
+//                        mFragmentTransaction.replace(R.id.fragment_2, fragValue);
                         break;
                 }
                 mFragmentTransaction.commit();
