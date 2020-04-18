@@ -98,8 +98,7 @@
             android:hint="Units Consumed"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/generalTextView1"
-            app:suffixTextColor="@color/Red">
+            app:layout_constraintTop_toBottomOf="@+id/generalTextView1">
             ​
 
             <com.google.android.material.textfield.TextInputEditText
@@ -118,8 +117,7 @@
             android:hint="Internet Used"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/generalTextView1"
-            app:suffixTextColor="@color/Red">
+            app:layout_constraintTop_toBottomOf="@+id/generalTextView1">
             ​
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/txtNew3"
@@ -136,8 +134,7 @@
             android:layout_marginEnd="8dp"
             android:hint="Minutes Used"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:suffixTextColor="@color/Red">
+            app:layout_constraintStart_toStartOf="parent">
             ​
 
             <com.google.android.material.textfield.TextInputEditText
@@ -155,8 +152,7 @@
             android:layout_marginEnd="8dp"
             android:hint="Minutes Used"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:suffixTextColor="@color/Red">
+            app:layout_constraintStart_toStartOf="parent">
             ​
 
             <com.google.android.material.textfield.TextInputEditText

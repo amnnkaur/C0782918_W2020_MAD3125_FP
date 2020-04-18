@@ -77,7 +77,7 @@ public class AddNewBillActivity extends AppCompatActivity {
                        txtNew4.setVisibility(View.INVISIBLE);
                         txtNew5.setVisibility(View.INVISIBLE);
 
-                       billSaveButton.setOnClickListener(new View.OnClickListener() {
+                        billSaveButton.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
                                 if (txtNewBillID.getText().toString().isEmpty()) {
