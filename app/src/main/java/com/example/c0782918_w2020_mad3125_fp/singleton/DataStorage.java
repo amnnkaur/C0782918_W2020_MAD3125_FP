@@ -78,23 +78,23 @@ public class DataStorage {
         Customer cus5 = new Customer("CUS05",R.drawable.male,"Jas","Kaur","jas@gmail.com","866526768");
         Customer cus6 = new Customer("CUS06",R.drawable.male,"Harpreet","Singh","harpreet@gmail.com","8755456468");
 
-        Hydro hyd1 = new Hydro("HYD1",BillType.HYDRO,Date.from(Instant.now()),"qwerty",20);
-        Hydro hyd2 = new Hydro("HYD2",BillType.HYDRO,Date.from(Instant.now()),"qwerty",10);
-        Hydro hyd3 = new Hydro("HYD3",BillType.HYDRO,Date.from(Instant.now()),"qwerty",50);
+        Hydro hyd1 = new Hydro("HYD1",BillType.HYDRO,"18/04/2020","qwerty",20);
+        Hydro hyd2 = new Hydro("HYD2",BillType.HYDRO,"18/04/2020","qwerty",10);
+        Hydro hyd3 = new Hydro("HYD3",BillType.HYDRO,"18/04/2020","qwerty",50);
         this.hydroArrayList.add(hyd1);
         this.hydroArrayList.add(hyd2);
         this.hydroArrayList.add(hyd3);
 
-        Mobile mob1 = new Mobile("MOB1",BillType.MOBILE,Date.from(Instant.now()),"Apple","Freedom","54577678",10,40);
-        Mobile mob2 = new Mobile("MOB2",BillType.MOBILE,Date.from(Instant.now()),"Samsung","Lucky","3532523",20,40);
-        Mobile mob3 = new Mobile("MOB3",BillType.MOBILE,Date.from(Instant.now()),"Lenovo","Fido","325255252",30,40);
+        Mobile mob1 = new Mobile("MOB1",BillType.MOBILE,"18/04/2020","Apple","Freedom","54577678",10,40);
+        Mobile mob2 = new Mobile("MOB2",BillType.MOBILE,"18/04/2020","Samsung","Lucky","3532523",20,40);
+        Mobile mob3 = new Mobile("MOB3",BillType.MOBILE,"18/04/2020","Lenovo","Fido","325255252",30,40);
         this.mobileArrayList.add(mob1);
         this.mobileArrayList.add(mob2);
         this.mobileArrayList.add(mob3);
 
-        Internet int1 = new Internet("INT1",BillType.INTERNET,Date.from(Instant.now()),"Freedom",50);
-        Internet int2 = new Internet("INT2",BillType.INTERNET,Date.from(Instant.now()),"Lucky",50);
-        Internet int3 = new Internet("INT3",BillType.INTERNET,Date.from(Instant.now()),"Fido",50);
+        Internet int1 = new Internet("INT1",BillType.INTERNET,"18/04/2020","Freedom",50);
+        Internet int2 = new Internet("INT2",BillType.INTERNET,"18/04/2020","Lucky",50);
+        Internet int3 = new Internet("INT3",BillType.INTERNET,"18/04/2020","Fido",50);
         this.internetArrayList.add(int1);
         this.internetArrayList.add(int2);
         this.internetArrayList.add(int3);

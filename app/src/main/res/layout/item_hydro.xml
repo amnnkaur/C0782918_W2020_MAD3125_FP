@@ -6,10 +6,13 @@
             type="com.example.c0782918_w2020_mad3125_fp.model.Hydro" />
         <import type="com.example.c0782918_w2020_mad3125_fp.util.StringUtil"/>
     </data>
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"

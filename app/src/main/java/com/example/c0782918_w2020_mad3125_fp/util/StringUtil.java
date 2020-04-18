@@ -9,6 +9,14 @@ import java.util.regex.Pattern;
 
 public class StringUtil {
 
+    private static StringUtil str = new StringUtil();
+
+    public static StringUtil getObj() {
+        return str;
+    }
+
+    private StringUtil(){}
+
     public static String convertIntToString(int value){
         return (String.valueOf(value));
     }
@@ -31,6 +39,15 @@ public class StringUtil {
         Pattern p = Pattern.compile(ePattern);
         Matcher m = p.matcher(email);
         return m.matches();
+    }
+
+    public boolean isValidMobileNumber(String mobile)
+    {
+        if(mobile.length() == 10)
+        {
+            return true;
+        }
+        else {return false;}
     }
 
 }

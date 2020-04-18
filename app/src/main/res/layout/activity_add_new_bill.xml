@@ -3,16 +3,30 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="NewBillHandler"
+            type="com.example.c0782918_w2020_mad3125_fp.ui.AddNewBillActivity.NewBillHandler" />
+
+        <import type="com.example.c0782918_w2020_mad3125_fp.util.StringUtil"/>
+    </data>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <Spinner
+            android:id="@+id/spinnerBillType"
+            android:layout_marginTop="50dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/editTxtID"
             android:layout_width="match_parent"
             android:layout_height="52dp"
-            android:layout_marginTop="62dp"
+            android:layout_marginTop="20dp"
             android:ems="10"
             android:hint="Enter Bill ID"
             android:inputType="textPersonName"
@@ -28,8 +42,6 @@
                 android:textColor="#2B0000" />
 
         </com.google.android.material.textfield.TextInputLayout>
-
-
 
     <LinearLayout
             android:layout_width="wrap_content"
@@ -67,35 +79,29 @@
         </LinearLayout>
 
 
-            <Spinner
-                android:id="@+id/spinnerBillType"
-                android:layout_marginTop="20dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/generalTextView1"
+            android:id="@+id/TextView1"
             android:layout_width="match_parent"
             android:layout_height="52dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="8dp"
             android:hint="Enter Agency Name"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/enterGeneralTextView1"
+                android:id="@+id/txtNew1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/generalTextView2"
+            android:id="@+id/TextView2"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="8dp"
             android:hint="Units Consumed"
             app:layout_constraintEnd_toEndOf="parent"
@@ -105,17 +111,76 @@
             ​
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/enterGeneralTextView2"
+                android:id="@+id/txtNew2"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/TextView3"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="8dp"
+            android:hint="Internet Used"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/generalTextView1"
+            app:suffixTextColor="@color/Red">
+            ​
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtNew3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/TextView5"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="8dp"
+            android:hint="Minutes Used"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:suffixTextColor="@color/Red">
+            ​
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtNew4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/TextView6"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="8dp"
+            android:hint="Minutes Used"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:suffixTextColor="@color/Red">
+            ​
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtNew5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
             android:id="@+id/billSaveButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:background="#2B0000"
             android:text="Save"
+            android:textColor="#F6EFE4"
             android:layout_gravity="center"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

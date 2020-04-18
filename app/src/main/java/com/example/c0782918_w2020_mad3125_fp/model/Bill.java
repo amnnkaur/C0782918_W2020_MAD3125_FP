@@ -7,10 +7,10 @@ public abstract class Bill implements Serializable {
 
     String billID;
     BillType billType;
-    Date billDate;
+    String billDate;
    Double billTotal= 0.0;
 
-    public Bill(String billID, BillType billType, Date billDate/*, Double billTotal*/) {
+    public Bill(String billID, BillType billType, String billDate/*, Double billTotal*/) {
         this.billID = billID;
         this.billType = billType;
         this.billDate = billDate;
@@ -33,11 +33,11 @@ public abstract class Bill implements Serializable {
         this.billType = billType;
     }
 
-    public Date getBillDate() {
+    public String getBillDate() {
         return billDate;
     }
 
-    public void setBillDate(Date billDate) {
+    public void setBillDate(String billDate) {
         this.billDate = billDate;
     }
 
