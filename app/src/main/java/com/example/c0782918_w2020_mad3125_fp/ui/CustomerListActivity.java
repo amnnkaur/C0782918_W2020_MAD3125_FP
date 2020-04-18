@@ -122,8 +122,9 @@ public class CustomerListActivity extends AppCompatActivity {
     }
 
     public void aboutUsDialog(final Context context){
-        AboutUsBinding aboutUsBinding = AboutUsBinding.inflate(LayoutInflater.from(context));
-        abtDialog.setContentView(aboutUsBinding.getRoot());
+        abtDialog = new Dialog(context);
+        abtDialog.setContentView(R.layout.about_us);
+        abtDialog.setTitle("About Us");
 
         webView.loadUrl("https://www.lambtoncollege.ca/");
         webView.setWebViewClient(new WebViewClient() {

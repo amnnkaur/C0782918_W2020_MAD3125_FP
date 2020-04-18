@@ -4,6 +4,8 @@ import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class StringUtil {
 
@@ -21,6 +23,14 @@ public class StringUtil {
     {
         DateFormat df = new SimpleDateFormat("dd-MMM-yyyy");
         return(df.format(date));
+    }
+
+
+    public boolean isValidEmailAddress(String email) {
+        String ePattern = "^[A-Za-z0-9+_.-]+@(.+)$";
+        Pattern p = Pattern.compile(ePattern);
+        Matcher m = p.matcher(email);
+        return m.matches();
     }
 
 }
