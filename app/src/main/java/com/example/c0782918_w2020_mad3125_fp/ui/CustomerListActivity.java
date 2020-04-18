@@ -23,7 +23,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Toast;
 
-import com.example.c0782918_w2020_mad3125_fp.DataBinderMapperImpl;
+
 import com.example.c0782918_w2020_mad3125_fp.R;
 import com.example.c0782918_w2020_mad3125_fp.adapter.CustomerAdapter;
 import com.example.c0782918_w2020_mad3125_fp.databinding.AboutUsBinding;
