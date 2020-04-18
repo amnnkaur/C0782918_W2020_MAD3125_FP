@@ -38,14 +38,12 @@ public class HydAdapter extends RecyclerView.Adapter<HydAdapter.HydroViewHolder>
     public void onBindViewHolder(@NonNull HydAdapter.HydroViewHolder holder, int position) {
         Hydro hydroObject = this.hydroArrayList.get(position);
         holder.id.setText(hydroObject.getBillID());
+        holder.date.setText(String.valueOf(hydroObject.getBillDate()));
         holder.agencyName.setText(hydroObject.getAgencyName());
         holder.unitsConsumed.setText(hydroObject.getUnitsConsumed() + " Units");
-
-
+        holder.amount.setText(defaultFormat.format(hydroObject.getBillTotal()));
 
     }
-
-
 
     @Override
     public int getItemCount() {
@@ -56,17 +54,19 @@ public class HydAdapter extends RecyclerView.Adapter<HydAdapter.HydroViewHolder>
     public class HydroViewHolder extends RecyclerView.ViewHolder{
 
         TextView id;
-
+        TextView date;
         TextView agencyName;
         TextView unitsConsumed;
+        TextView amount;
 
         public HydroViewHolder(@NonNull View itemView) {
             super(itemView);
 
             id = itemView.findViewById(R.id.txtHydBillID);
-
+            date = itemView.findViewById(R.id.txtHydBillDate);
             agencyName = itemView.findViewById(R.id.txtAgencyName);
             unitsConsumed = itemView.findViewById(R.id.txtUnits);
+            amount = itemView.findViewById(R.id.txtHydBillAmount);
 
         }
     }

@@ -3,13 +3,9 @@ package com.example.c0782918_w2020_mad3125_fp.fragments;
 import android.os.Build;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
-import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,10 +13,8 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.c0782918_w2020_mad3125_fp.R;
-import com.example.c0782918_w2020_mad3125_fp.adapter.HydroAdapter;
 import com.example.c0782918_w2020_mad3125_fp.adapter.MobileAdapter;
 import com.example.c0782918_w2020_mad3125_fp.databinding.FragmentCusMobileBinding;
-import com.example.c0782918_w2020_mad3125_fp.model.Hydro;
 import com.example.c0782918_w2020_mad3125_fp.model.Mobile;
 import com.example.c0782918_w2020_mad3125_fp.singleton.DataStorage;
 
