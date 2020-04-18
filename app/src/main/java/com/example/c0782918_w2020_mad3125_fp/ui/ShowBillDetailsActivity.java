@@ -11,6 +11,8 @@ import android.os.Bundle;
 import com.example.c0782918_w2020_mad3125_fp.R;
 import com.example.c0782918_w2020_mad3125_fp.databinding.ActivityShowBillDetailsBinding;
 import com.example.c0782918_w2020_mad3125_fp.fragments.CusHydro;
+import com.example.c0782918_w2020_mad3125_fp.fragments.CusInternet;
+import com.example.c0782918_w2020_mad3125_fp.fragments.CusMobile;
 import com.example.c0782918_w2020_mad3125_fp.model.Customer;
 import com.google.android.material.tabs.TabLayout;
 
@@ -53,12 +55,12 @@ public class ShowBillDetailsActivity extends AppCompatActivity {
                         mFragmentTransaction.replace(R.id.fragment_2, fragValue);
                         break;
                     case 1:
-//                        fragValue = new CusHydro();
-//                        mFragmentTransaction.replace(R.id.fragment_2, fragValue);
+                      fragValue = new CusInternet();
+                       mFragmentTransaction.replace(R.id.fragment_2, fragValue);
                         break;
                     case 2:
-//                        fragValue = new CusHydro();
-//                        mFragmentTransaction.replace(R.id.fragment_2, fragValue);
+                     fragValue = new CusMobile();
+                      mFragmentTransaction.replace(R.id.fragment_2, fragValue);
                         break;
                 }
                 mFragmentTransaction.commit();

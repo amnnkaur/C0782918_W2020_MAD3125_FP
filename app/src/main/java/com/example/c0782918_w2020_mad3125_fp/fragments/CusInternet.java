@@ -9,6 +9,7 @@ import androidx.annotation.RequiresApi;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,10 +17,14 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.c0782918_w2020_mad3125_fp.R;
+import com.example.c0782918_w2020_mad3125_fp.adapter.HydAdapter;
 import com.example.c0782918_w2020_mad3125_fp.adapter.InternetAdapter;
+import com.example.c0782918_w2020_mad3125_fp.databinding.FragmentCusHydroBinding;
 import com.example.c0782918_w2020_mad3125_fp.databinding.FragmentCusInternetBinding;
+import com.example.c0782918_w2020_mad3125_fp.model.Hydro;
 import com.example.c0782918_w2020_mad3125_fp.model.Internet;
 import com.example.c0782918_w2020_mad3125_fp.singleton.DataStorage;
+import com.example.c0782918_w2020_mad3125_fp.ui.ShowBillDetailsActivity;
 
 import java.util.ArrayList;
 
@@ -27,40 +32,49 @@ import java.util.ArrayList;
  * A simple {@link Fragment} subclass.
  */
 public class CusInternet extends Fragment {
-    View view;
+
     private InternetAdapter internetAdapter;
     private ArrayList<Internet> internetArrayList;
-
     FragmentCusInternetBinding cusInternetBinding;
+    private RecyclerView internetRV;
+
 
     public CusInternet() {
         // Required empty public constructor
     }
+
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        view = inflater.inflate(R.layout.fragment_cus_internet,container,false);
-        Toast.makeText(getContext(),"InternetFrag",Toast.LENGTH_SHORT).show();
-        internetAdapter = new InternetAdapter(internetArrayList);
-        cusInternetBinding.rvCusInternet.setLayoutManager(new LinearLayoutManager(getActivity()));
-        cusInternetBinding.rvCusInternet.setAdapter(internetAdapter);
-        DataStorage.getInstance().loadData();
-        populateInternetBill();
-        return view;
+        View view = inflater.inflate(R.layout.fragment_cus_internet,container,false);
+        return view ;
     }
 
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        ShowBillDetailsActivity fragObject = (ShowBillDetailsActivity) getActivity();
+
+        internetRV = view.findViewById(R.id.rvCusInternet);
+        DataStorage.getInstance().loadData();
+        populateInternetBill();
+    }
     public void populateInternetBill(){
+
         internetArrayList = new ArrayList<>();
-
-        if(DataStorage.getInstance().getAllCustomers().size() == 0){
-            Toast.makeText(getContext(), "Null", Toast.LENGTH_SHORT).show();
+        if(DataStorage.getInstance().getAllInternet().size() == 0){
+            Toast.makeText(getContext(), String.valueOf(DataStorage.getInstance().getAllInternet().size()), Toast.LENGTH_SHORT).show();
         }else{
-            internetArrayList = DataStorage.getInstance().getAllInternet();}
+            Toast.makeText(getContext(),String.valueOf(DataStorage.getInstance().getAllInternet().get(2).getBillID()),Toast.LENGTH_SHORT).show();
+            internetArrayList = DataStorage.getInstance().getAllInternet();
+            internetAdapter = new InternetAdapter(internetArrayList);
 
-
+            internetRV.setAdapter(internetAdapter);
+        }
     }
 }
