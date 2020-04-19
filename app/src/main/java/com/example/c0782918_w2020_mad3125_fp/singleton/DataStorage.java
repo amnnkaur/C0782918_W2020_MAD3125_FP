@@ -76,17 +76,18 @@ public class DataStorage {
 */
         Customer cus1 = new Customer("CUS01",R.drawable.male,"Aman","Kaur","aman@gmail.com","134566");
         Customer cus2 = new Customer("CUS02", R.drawable.male,"Anmol","Singh","anmol@gmail.com","8792158622");
-//        Customer cus3 = new Customer("CUS03", R.drawable.male,"Monika","Sharma","monika@gmail.com","8765448");
-//        Customer cus4 = new Customer("CUS04",R.drawable.male,"Roop","Kaur","roop@gmail.com","86565655768");
+        Customer cus3 = new Customer("CUS03", R.drawable.male,"Monika","Sharma","monika@gmail.com","8765448");
+
+        Customer cus4 = new Customer("CUS04",R.drawable.male,"Roop","Kaur","roop@gmail.com","86565655768");
 //        Customer cus5 = new Customer("CUS05",R.drawable.male,"Jas","Kaur","jas@gmail.com","866526768");
 //        Customer cus6 = new Customer("CUS06",R.drawable.male,"Harpreet","Singh","harpreet@gmail.com","8755456468");
 
-        Hydro hyd1 = new Hydro("CUS01","HYD1",BillType.HYDRO,"18/04/2020","qwerty",20);
-        Hydro hyd2 = new Hydro("CUS02","HYD2",BillType.HYDRO,"18/04/2020","qwerty",10);
-        Hydro hyd3 = new Hydro("CUS01","HYD3",BillType.HYDRO,"18/04/2020","qwerty",50);
-        Hydro hyd4 = new Hydro("CUS02","HYD4",BillType.HYDRO,"18/04/2020","qwerty",50);
-        Hydro hyd5 = new Hydro("CUS01","HYD5",BillType.HYDRO,"18/04/2020","qwerty",50);
-        Hydro hyd6 = new Hydro("CUS02","HYD6",BillType.HYDRO,"18/04/2020","qwerty",50);
+        Hydro hyd1 = new Hydro("CUS01","HYD1",BillType.HYDRO,"18/04/2020","Electricity Services",20);
+        Hydro hyd2 = new Hydro("CUS02","HYD2",BillType.HYDRO,"18/04/2020","Electricity Services",10);
+        Hydro hyd3 = new Hydro("CUS01","HYD3",BillType.HYDRO,"18/04/2020","Electricity Services",50);
+        Hydro hyd4 = new Hydro("CUS02","HYD4",BillType.HYDRO,"18/04/2020","Electricity Services",50);
+        Hydro hyd5 = new Hydro("CUS01","HYD5",BillType.HYDRO,"18/04/2020","Electricity Services",50);
+        Hydro hyd6 = new Hydro("CUS02","HYD6",BillType.HYDRO,"18/04/2020","Electricity Services",50);
 //        Hydro hyd7 = new Hydro("CUS02","HYD7",BillType.HYDRO,"18/04/2020","qwerty",50);
         this.hydroArrayList.add(hyd1);
         this.hydroArrayList.add(hyd2);

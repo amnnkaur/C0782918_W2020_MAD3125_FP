@@ -38,6 +38,7 @@ public class CusInternet extends Fragment {
     FragmentCusInternetBinding cusInternetBinding;
     private RecyclerView internetRV;
 
+    public static String customerid;
 
     public CusInternet() {
         // Required empty public constructor
@@ -70,9 +71,14 @@ public class CusInternet extends Fragment {
         if(DataStorage.getInstance().getAllInternet().size() == 0){
             Toast.makeText(getContext(), "null", Toast.LENGTH_SHORT).show();
         }else{
-
+            ArrayList<Internet> sortedInternetArrayList = new ArrayList<>();
             internetArrayList = DataStorage.getInstance().getAllInternet();
-            internetAdapter = new InternetAdapter(internetArrayList);
+            for(int i = 0;i<internetArrayList.size();i++){
+                if(internetArrayList.get(i).getCustomerId().equals(customerid)){
+                    sortedInternetArrayList.add(internetArrayList.get(i));
+                }
+            }
+            internetAdapter = new InternetAdapter(sortedInternetArrayList);
 
             internetRV.setAdapter(internetAdapter);
         }

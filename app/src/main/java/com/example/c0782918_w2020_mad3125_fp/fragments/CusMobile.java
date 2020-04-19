@@ -37,6 +37,7 @@ public class CusMobile extends Fragment {
     FragmentCusMobileBinding cusMobileBinding;
     private RecyclerView mobileRv;
 
+    public static String customerid;
 
     public CusMobile() {
         // Required empty public constructor
@@ -69,8 +70,14 @@ public class CusMobile extends Fragment {
         if(DataStorage.getInstance().getAllMobile().size() == 0){
             Toast.makeText(getContext(), "null", Toast.LENGTH_SHORT).show();
         }else{
+            ArrayList<Mobile> sortedMobileArrayList = new ArrayList<>();
             mobileArrayList = DataStorage.getInstance().getAllMobile();
-            mobileAdapter = new MobileAdapter(mobileArrayList);
+            for(int i = 0;i<mobileArrayList.size();i++){
+                if(mobileArrayList.get(i).getCustomerId().equals(customerid)){
+                    sortedMobileArrayList.add(mobileArrayList.get(i));
+                }
+            }
+            mobileAdapter = new MobileAdapter(sortedMobileArrayList);
 
             mobileRv.setAdapter(mobileAdapter);
         }
