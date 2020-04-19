@@ -5,17 +5,29 @@ import java.util.Date;
 
 public abstract class Bill implements Serializable {
 
+    String customerId;
     String billID;
     BillType billType;
     String billDate;
-   Double billTotal= 0.0;
+    Double billTotal= 0.0;
 
-    public Bill(String billID, BillType billType, String billDate/*, Double billTotal*/) {
+
+    public Bill(String customerId, String billID, BillType billType, String billDate/*, Double billTotal*/) {
+        this.customerId = customerId;
         this.billID = billID;
         this.billType = billType;
         this.billDate = billDate;
-       // this.billTotal = billTotal;
+        // this.billTotal = billTotal;
     }
+
+    public String getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(String customerId) {
+        this.customerId = customerId;
+    }
+
 
     public String getBillID() {
         return billID;

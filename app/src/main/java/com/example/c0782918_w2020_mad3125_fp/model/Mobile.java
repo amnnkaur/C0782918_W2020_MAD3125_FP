@@ -10,8 +10,8 @@ public class Mobile extends Bill {
     private int internetUsed;
     private int minuteUsed;
 
-    public Mobile(String billID, BillType billType, String billDate, String mobileManfName, String planName, String mobileNumber, int internetUsed, int minuteUsed) {
-        super(billID, billType, billDate);
+    public Mobile(String customerId,String billID, BillType billType, String billDate, String mobileManfName, String planName, String mobileNumber, int internetUsed, int minuteUsed) {
+        super(customerId,billID, billType, billDate);
 
         this.mobileManfName = mobileManfName;
         this.planName = planName;

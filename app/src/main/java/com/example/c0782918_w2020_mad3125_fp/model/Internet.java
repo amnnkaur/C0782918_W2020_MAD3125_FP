@@ -7,8 +7,8 @@ public class Internet extends Bill {
     private String providerName;
     private int internetGBUsed;
 
-    public Internet(String billID, BillType billType, String billDate, String providerName, int internetGBUsed) {
-        super(billID, billType, billDate);
+    public Internet(String customerId,String billID, BillType billType, String billDate, String providerName, int internetGBUsed) {
+        super(customerId,billID, billType, billDate);
 
         this.providerName = providerName;
         this.internetGBUsed = internetGBUsed;

@@ -16,6 +16,9 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.example.c0782918_w2020_mad3125_fp.R;
+import com.example.c0782918_w2020_mad3125_fp.adapter.HydAdapter;
+import com.example.c0782918_w2020_mad3125_fp.adapter.InternetAdapter;
+import com.example.c0782918_w2020_mad3125_fp.adapter.MobileAdapter;
 import com.example.c0782918_w2020_mad3125_fp.model.Bill;
 import com.example.c0782918_w2020_mad3125_fp.model.BillType;
 import com.example.c0782918_w2020_mad3125_fp.model.Hydro;
@@ -45,10 +48,17 @@ public class AddNewBillActivity extends AppCompatActivity {
     Hydro hydro;
     Internet internet;
     ArrayAdapter spinnerAdapter;
+    String customer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_new_bill);
+
+        Intent fetch = getIntent();
+        if(fetch.hasExtra("customerID")){
+            customer = fetch.getStringExtra("customerID");
+        }
+
         txtNewBillID = findViewById(R.id.txtNewBillID);
         txtNewBillDate = findViewById(R.id.txtNewBillDate);
         txtNew1 = findViewById(R.id.txtNew1);
@@ -88,13 +98,14 @@ public class AddNewBillActivity extends AppCompatActivity {
                                 } else if (txtNew2.getText().toString().isEmpty()) {
                                     txtNew2.setError("Please enter Units Consumed");
                                 } else if (txtNewBillID.getText().toString().contains("HYD")) {
-                                    Hydro hyd = new Hydro(txtNewBillID.getText().toString(),
+                                    Hydro hyd = new Hydro(customer,txtNewBillID.getText().toString(),
                                             BillType.HYDRO,
                                             txtNewBillDate.getText().toString(),
                                             txtNew1.getText().toString(),
                                             Integer.parseInt(txtNew2.getText().toString()));
                                     DataStorage.getInstance().addHydro(hyd);
-                                    Intent billIntent = new Intent(AddNewBillActivity.this, ShowBillDetailsActivity.class);
+                                    HydAdapter.lastIndex +=1;
+                                    Intent billIntent = new Intent(AddNewBillActivity.this, CustomerListActivity.class);
                                     startActivity(billIntent);
                                 }
                             }
@@ -118,13 +129,14 @@ public class AddNewBillActivity extends AppCompatActivity {
                                 } else if (txtNew2.getText().toString().isEmpty()) {
                                     txtNew2.setError("Please enter Internet GB used");
                                 } else if (txtNewBillID.getText().toString().contains("INT")) {
-                                    Internet internet = new Internet(txtNewBillID.getText().toString(),
+                                    Internet internet = new Internet(customer,txtNewBillID.getText().toString(),
                                             BillType.INTERNET,
                                             txtNewBillDate.getText().toString(),
                                             txtNew1.getText().toString(),
                                             Integer.parseInt(txtNew2.getText().toString()));
                                     DataStorage.getInstance().addInternet(internet);
-                                    Intent billIntent = new Intent(AddNewBillActivity.this, ShowBillDetailsActivity.class);
+                                    InternetAdapter.lastIndex +=1;
+                                    Intent billIntent = new Intent(AddNewBillActivity.this, CustomerListActivity.class);
                                     startActivity(billIntent);
                                 }
                             }
@@ -157,7 +169,7 @@ public class AddNewBillActivity extends AppCompatActivity {
                                 } else if (txtNew5.getText().toString().isEmpty()) {
                                     txtNew5.setError("Please enter Minutes used");
                                 } else if (txtNewBillID.getText().toString().contains("MOB")) {
-                                    Mobile mob = new Mobile(txtNewBillID.getText().toString(),
+                                    Mobile mob = new Mobile(customer,txtNewBillID.getText().toString(),
                                             BillType.MOBILE,
                                             txtNewBillDate.getText().toString(),
                                             txtNew1.getText().toString(),
@@ -166,7 +178,8 @@ public class AddNewBillActivity extends AppCompatActivity {
                                             Integer.parseInt(txtNew4.getText().toString()),
                                             Integer.parseInt(txtNew5.getText().toString()));
                                     DataStorage.getInstance().addMobile(mob);
-                                    Intent billIntent = new Intent(AddNewBillActivity.this, ShowBillDetailsActivity.class);
+                                    MobileAdapter.lastIndex +=1;
+                                    Intent billIntent = new Intent(AddNewBillActivity.this, CustomerListActivity.class);
                                     startActivity(billIntent);
                                 }
                             }

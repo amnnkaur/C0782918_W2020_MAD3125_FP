@@ -22,6 +22,8 @@ public class InternetAdapter  extends RecyclerView.Adapter<InternetAdapter.Inter
     private ArrayList<Internet> internetArrayList;
     NumberFormat defaultFormat = NumberFormat.getCurrencyInstance();
 
+    public static int lastIndex = 2;
+
     public InternetAdapter(ArrayList<Internet> internetArrayList) {
         this.internetArrayList = internetArrayList;
     }
@@ -55,7 +57,7 @@ public class InternetAdapter  extends RecyclerView.Adapter<InternetAdapter.Inter
 
     @Override
     public int getItemCount() {
-        return this.internetArrayList.size();
+        return lastIndex+1;
     }
 
     public class InternetViewHolder extends RecyclerView.ViewHolder {

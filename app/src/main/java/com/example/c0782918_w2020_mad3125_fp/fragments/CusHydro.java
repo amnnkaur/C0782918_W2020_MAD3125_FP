@@ -23,10 +23,11 @@ import java.util.ArrayList;
 public class CusHydro extends Fragment {
 
     private HydAdapter hydroAdapter;
-    private ArrayList<Hydro> hydroArrayList;
+    static private ArrayList<Hydro> hydroArrayList;
     FragmentCusHydroBinding cusHydroBinding;
     private RecyclerView hydroRV;
 
+    public static String customerid;
 
     public CusHydro() {
         // Required empty public constructor
@@ -50,18 +51,24 @@ public class CusHydro extends Fragment {
         ShowBillDetailsActivity fragObject = (ShowBillDetailsActivity) getActivity();
 
         hydroRV = view.findViewById(R.id.rvCusHydro);
-        DataStorage.getInstance().loadData();
+//        DataStorage.getInstance().loadData();
         populateHydroBill();
     }
     public void populateHydroBill(){
 
         hydroArrayList = new ArrayList<>();
         if(DataStorage.getInstance().getAllHydro().size() == 0){
-            Toast.makeText(getContext(), String.valueOf(DataStorage.getInstance().getAllHydro().size()), Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "null", Toast.LENGTH_SHORT).show();
         }else{
-            Toast.makeText(getContext(),String.valueOf(DataStorage.getInstance().getAllHydro().get(2).getBillID()),Toast.LENGTH_SHORT).show();
+
+            ArrayList<Hydro> sortedHydroArrayList = new ArrayList<>();
             hydroArrayList = DataStorage.getInstance().getAllHydro();
-            hydroAdapter = new HydAdapter(hydroArrayList);
+            for(int i = 0;i<hydroArrayList.size();i++){
+                if(hydroArrayList.get(i).getCustomerId().equals(customerid)){
+                    sortedHydroArrayList.add(hydroArrayList.get(i));
+                }
+            }
+            hydroAdapter = new HydAdapter(sortedHydroArrayList);
 
             hydroRV.setAdapter(hydroAdapter);
         }

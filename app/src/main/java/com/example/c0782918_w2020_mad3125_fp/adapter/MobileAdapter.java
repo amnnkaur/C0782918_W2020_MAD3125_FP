@@ -23,6 +23,8 @@ public class MobileAdapter extends RecyclerView.Adapter<MobileAdapter.MobileView
     private ArrayList<Mobile> mobileArrayList;
     NumberFormat defaultFormat = NumberFormat.getCurrencyInstance();
 
+    public static int lastIndex = 2;
+
     public MobileAdapter(ArrayList<Mobile> mobileArrayList) {
         this.mobileArrayList = mobileArrayList;
     }
@@ -34,7 +36,7 @@ public class MobileAdapter extends RecyclerView.Adapter<MobileAdapter.MobileView
         View mView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_mobile,
                 parent,
                 false);
-       MobileViewHolder mobileViewHolder = new MobileAdapter.MobileViewHolder(mView);
+        MobileViewHolder mobileViewHolder = new MobileAdapter.MobileViewHolder(mView);
 
         return mobileViewHolder;
 
@@ -51,12 +53,11 @@ public class MobileAdapter extends RecyclerView.Adapter<MobileAdapter.MobileView
         holder.internetGBUsed.setText(mobile.getInternetUsed() + " GB");
         holder.minutesUsed.setText(mobile.getMinuteUsed() + " Minutes");
         holder.amount.setText(defaultFormat.format(mobile.getBillTotal()));
-
     }
 
     @Override
     public int getItemCount() {
-        return this.mobileArrayList.size();
+        return lastIndex+1;
     }
 
     public class MobileViewHolder extends RecyclerView.ViewHolder {

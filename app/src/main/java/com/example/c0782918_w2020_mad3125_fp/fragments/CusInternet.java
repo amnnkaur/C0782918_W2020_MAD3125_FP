@@ -34,7 +34,7 @@ import java.util.ArrayList;
 public class CusInternet extends Fragment {
 
     private InternetAdapter internetAdapter;
-    private ArrayList<Internet> internetArrayList;
+    static private ArrayList<Internet> internetArrayList;
     FragmentCusInternetBinding cusInternetBinding;
     private RecyclerView internetRV;
 
@@ -61,16 +61,16 @@ public class CusInternet extends Fragment {
         ShowBillDetailsActivity fragObject = (ShowBillDetailsActivity) getActivity();
 
         internetRV = view.findViewById(R.id.rvCusInternet);
-        DataStorage.getInstance().loadData();
+//        DataStorage.getInstance().loadData();
         populateInternetBill();
     }
     public void populateInternetBill(){
 
         internetArrayList = new ArrayList<>();
         if(DataStorage.getInstance().getAllInternet().size() == 0){
-            Toast.makeText(getContext(), String.valueOf(DataStorage.getInstance().getAllInternet().size()), Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "null", Toast.LENGTH_SHORT).show();
         }else{
-            Toast.makeText(getContext(),String.valueOf(DataStorage.getInstance().getAllInternet().get(2).getBillID()),Toast.LENGTH_SHORT).show();
+
             internetArrayList = DataStorage.getInstance().getAllInternet();
             internetAdapter = new InternetAdapter(internetArrayList);
 

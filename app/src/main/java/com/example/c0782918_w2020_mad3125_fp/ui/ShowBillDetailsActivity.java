@@ -12,6 +12,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.example.c0782918_w2020_mad3125_fp.R;
 import com.example.c0782918_w2020_mad3125_fp.databinding.ActivityShowBillDetailsBinding;
@@ -19,6 +20,7 @@ import com.example.c0782918_w2020_mad3125_fp.fragments.CusHydro;
 import com.example.c0782918_w2020_mad3125_fp.fragments.CusInternet;
 import com.example.c0782918_w2020_mad3125_fp.fragments.CusMobile;
 import com.example.c0782918_w2020_mad3125_fp.model.Customer;
+import com.example.c0782918_w2020_mad3125_fp.singleton.DataStorage;
 import com.google.android.material.tabs.TabLayout;
 
 
@@ -41,6 +43,10 @@ public class ShowBillDetailsActivity extends AppCompatActivity {
         showBillDetailsBinding.setCustomer(object);
 
 
+        Toast.makeText(ShowBillDetailsActivity.this, object.getCustomerID(), Toast.LENGTH_SHORT).show();
+
+        CusHydro.customerid = object.getCustomerID();
+
         mFragmentManager = getSupportFragmentManager();
         mFragmentTransaction = mFragmentManager.beginTransaction();
         mFragmentTransaction.add(R.id.fragment_2, new CusHydro());
@@ -60,12 +66,12 @@ public class ShowBillDetailsActivity extends AppCompatActivity {
                         mFragmentTransaction.replace(R.id.fragment_2, fragValue);
                         break;
                     case 1:
-                      fragValue = new CusInternet();
-                       mFragmentTransaction.replace(R.id.fragment_2, fragValue);
+                        fragValue = new CusInternet();
+                        mFragmentTransaction.replace(R.id.fragment_2, fragValue);
                         break;
                     case 2:
-                     fragValue = new CusMobile();
-                      mFragmentTransaction.replace(R.id.fragment_2, fragValue);
+                        fragValue = new CusMobile();
+                        mFragmentTransaction.replace(R.id.fragment_2, fragValue);
                         break;
                 }
                 mFragmentTransaction.commit();
@@ -90,6 +96,7 @@ public class ShowBillDetailsActivity extends AppCompatActivity {
         switch (item.getItemId()){
             case R.id.menu_add_bill:
                 Intent billIntent = new Intent(ShowBillDetailsActivity.this,AddNewBillActivity.class);
+                billIntent.putExtra("customerID",object.getCustomerID());
                 startActivity(billIntent);
                 break;
         }
@@ -101,4 +108,12 @@ public class ShowBillDetailsActivity extends AppCompatActivity {
         Intent intent = new Intent(ShowBillDetailsActivity.this,CustomerListActivity.class);
         startActivity(intent);
     }
+
+//    @Override
+//    protected void onPause() {
+//        super.onPause();
+//        DataStorage.getInstance().getAllHydro().clear();
+//        DataStorage.getInstance().getAllInternet().clear();
+//        DataStorage.getInstance().getAllMobile().clear();
+//    }
 }

@@ -33,7 +33,7 @@ import java.util.ArrayList;
 public class CusMobile extends Fragment {
 
     private MobileAdapter mobileAdapter;
-    private ArrayList<Mobile> mobileArrayList;
+    static private ArrayList<Mobile> mobileArrayList;
     FragmentCusMobileBinding cusMobileBinding;
     private RecyclerView mobileRv;
 
@@ -60,16 +60,15 @@ public class CusMobile extends Fragment {
         ShowBillDetailsActivity fragObject = (ShowBillDetailsActivity) getActivity();
 
         mobileRv = view.findViewById(R.id.rvCusMobile);
-        DataStorage.getInstance().loadData();
+//        DataStorage.getInstance().loadData();
         populateMobileBill();
     }
     public void populateMobileBill(){
 
         mobileArrayList = new ArrayList<>();
         if(DataStorage.getInstance().getAllMobile().size() == 0){
-            Toast.makeText(getContext(), String.valueOf(DataStorage.getInstance().getAllMobile().size()), Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "null", Toast.LENGTH_SHORT).show();
         }else{
-            Toast.makeText(getContext(),String.valueOf(DataStorage.getInstance().getAllMobile().get(2).getBillID()),Toast.LENGTH_SHORT).show();
             mobileArrayList = DataStorage.getInstance().getAllMobile();
             mobileAdapter = new MobileAdapter(mobileArrayList);
 

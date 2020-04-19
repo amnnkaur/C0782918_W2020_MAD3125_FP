@@ -7,8 +7,8 @@ public class Hydro extends Bill {
     private String agencyName;
     private int unitsConsumed;
 
-    public Hydro(String billID, BillType billType, String billDate, String agencyName, int unitsConsumed) {
-        super(billID, billType, billDate);
+    public Hydro(String customerId,String billID, BillType billType, String billDate, String agencyName, int unitsConsumed) {
+        super(customerId,billID, billType, billDate);
 
         this.agencyName = agencyName;
         this.unitsConsumed = unitsConsumed;
