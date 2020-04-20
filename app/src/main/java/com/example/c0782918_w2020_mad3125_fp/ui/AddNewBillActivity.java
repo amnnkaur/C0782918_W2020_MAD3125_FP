@@ -21,6 +21,7 @@ import com.example.c0782918_w2020_mad3125_fp.adapter.InternetAdapter;
 import com.example.c0782918_w2020_mad3125_fp.adapter.MobileAdapter;
 import com.example.c0782918_w2020_mad3125_fp.model.Bill;
 import com.example.c0782918_w2020_mad3125_fp.model.BillType;
+import com.example.c0782918_w2020_mad3125_fp.model.Customer;
 import com.example.c0782918_w2020_mad3125_fp.model.Hydro;
 import com.example.c0782918_w2020_mad3125_fp.model.Internet;
 import com.example.c0782918_w2020_mad3125_fp.model.Mobile;
@@ -49,13 +50,14 @@ public class AddNewBillActivity extends AppCompatActivity {
     Internet internet;
     ArrayAdapter spinnerAdapter;
     String customer;
+    Customer object;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_new_bill);
 
         Intent fetch = getIntent();
-        if(fetch.hasExtra("customerID")){
+        if(fetch.hasExtra("customer")){
             customer = fetch.getStringExtra("customerID");
         }
 
@@ -105,7 +107,7 @@ public class AddNewBillActivity extends AppCompatActivity {
                                             Integer.parseInt(txtNew2.getText().toString()));
                                     DataStorage.getInstance().addHydro(hyd);
                                     HydAdapter.lastIndex +=1;
-                                    Intent billIntent = new Intent(AddNewBillActivity.this, ShowBillDetailsActivity.class);
+                                    Intent billIntent = new Intent(AddNewBillActivity.this, CustomerListActivity.class);
                                     startActivity(billIntent);
                                 }
                             }
@@ -136,7 +138,7 @@ public class AddNewBillActivity extends AppCompatActivity {
                                             Integer.parseInt(txtNew2.getText().toString()));
                                     DataStorage.getInstance().addInternet(internet);
                                     InternetAdapter.lastIndex +=1;
-                                    Intent billIntent = new Intent(AddNewBillActivity.this, ShowBillDetailsActivity.class);
+                                    Intent billIntent = new Intent(AddNewBillActivity.this, CustomerListActivity.class);
                                     startActivity(billIntent);
                                 }
                             }
@@ -179,7 +181,7 @@ public class AddNewBillActivity extends AppCompatActivity {
                                             Integer.parseInt(txtNew5.getText().toString()));
                                     DataStorage.getInstance().addMobile(mob);
                                     MobileAdapter.lastIndex +=1;
-                                    Intent billIntent = new Intent(AddNewBillActivity.this, ShowBillDetailsActivity.class);
+                                    Intent billIntent = new Intent(AddNewBillActivity.this, CustomerListActivity.class);
                                     startActivity(billIntent);
                                 }
                             }

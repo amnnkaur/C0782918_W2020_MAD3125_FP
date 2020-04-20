@@ -53,7 +53,7 @@ public class AddNewCustomerActivity extends AppCompatActivity {
                 addNewCustomerBinding.txtMobile.setError("Please enter valid Mobile Number");
             }else {
                 Customer cust = new Customer((addNewCustomerBinding.txtID.getText().toString()), R.drawable.male, addNewCustomerBinding.txtFirstName.getText().toString(), addNewCustomerBinding.txtLastName.getText().toString(), addNewCustomerBinding.txtEmailAddress.getText().toString(), addNewCustomerBinding.txtMobile.getText().toString());
-                DataStorage.getInstance().addCustomer(cust);
+                DataStorage.getInstance().addCustomer(cust.getCustomerID(),cust);
 
                 Intent custIntent = new Intent(AddNewCustomerActivity.this, CustomerListActivity.class);
                 startActivity(custIntent);

@@ -43,11 +43,12 @@ public class ShowBillDetailsActivity extends AppCompatActivity {
         showBillDetailsBinding.setCustomer(object);
 
 
-        //Toast.makeText(ShowBillDetailsActivity.this, object.getCustomerID(), Toast.LENGTH_SHORT).show();
 
         CusHydro.customerid = object.getCustomerID();
         CusMobile.customerid = object.getCustomerID();
         CusInternet.customerid = object.getCustomerID();
+        Toast.makeText(ShowBillDetailsActivity.this, object.getCustomerID(), Toast.LENGTH_SHORT).show();
+
 
         mFragmentManager = getSupportFragmentManager();
         mFragmentTransaction = mFragmentManager.beginTransaction();
@@ -98,7 +99,7 @@ public class ShowBillDetailsActivity extends AppCompatActivity {
         switch (item.getItemId()){
             case R.id.menu_add_bill:
                 Intent billIntent = new Intent(ShowBillDetailsActivity.this,AddNewBillActivity.class);
-                billIntent.putExtra("customerID",object.getCustomerID());
+                billIntent.putExtra("customer",object);
                 startActivity(billIntent);
                 break;
         }

@@ -32,8 +32,8 @@ public class DataStorage {
     static public DataStorage getInstance(){
         return instance;
     }
-    public void addCustomer(Customer customer){
-        this.customerArrayList.add(customer);
+    public void addCustomer(String customerId, Customer customer1){
+        this.customerHashMap.put(customerId,customer1);
     }
     public void addHydro(Hydro hydro){
         this.hydroArrayList.add(0, hydro);
