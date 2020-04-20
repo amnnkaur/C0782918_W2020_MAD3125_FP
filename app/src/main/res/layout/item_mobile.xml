@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
         <variable
@@ -9,6 +10,12 @@
         <import type="com.example.c0782918_w2020_mad3125_fp.util.StringUtil"/>
 
     </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="#ECDFCB"
+        app:cardCornerRadius="10dp">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -29,6 +36,8 @@
                 android:id="@+id/textView4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="#2B0000"
+                android:textSize="18sp"
                 android:layout_weight="1"
                 android:text="Bill ID:   " />
 
@@ -36,6 +45,8 @@
                 android:id="@+id/txtMobBillID"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="#2B0000"
+                android:textSize="18sp"
                 android:layout_weight="1"
                 android:text="@{Mobile.billID}" />
         </LinearLayout>
@@ -52,12 +63,16 @@
                 android:id="@+id/textView6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="#2B0000"
+                android:textSize="18sp"
                 android:layout_weight="1"
                 android:text="Bill Date:" />
 
             <TextView
                 android:id="@+id/txtMobBillDate"
                 android:layout_width="wrap_content"
+                android:textColor="#2B0000"
+                android:textSize="18sp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@{Mobile.billDate}" />
@@ -75,6 +90,8 @@
                 android:id="@+id/textViewMobMAnf"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="#2B0000"
+                android:textSize="18sp"
                 android:layout_weight="1"
                 android:text="Mobile Manf. Name:" />
 
@@ -82,6 +99,8 @@
                 android:id="@+id/txtManf"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="#2B0000"
+                android:textSize="18sp"
                 android:layout_weight="1"
                 android:text="@{Mobile.mobileManfName}" />
         </LinearLayout>
@@ -98,12 +117,16 @@
                 android:id="@+id/textViewPlan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="#2B0000"
+                android:textSize="18sp"
                 android:layout_weight="1"
                 android:text="Plan Name:" />
 
             <TextView
                 android:id="@+id/txtPlanName"
                 android:layout_width="wrap_content"
+                android:textColor="#2B0000"
+                android:textSize="18sp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@{Mobile.planName}" />
@@ -121,6 +144,8 @@
                 android:id="@+id/textViewInt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="#2B0000"
+                android:textSize="18sp"
                 android:layout_weight="1"
                 android:text="Internet GB Used:" />
 
@@ -128,6 +153,8 @@
                 android:id="@+id/txtMobIntGB"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="#2B0000"
+                android:textSize="18sp"
                 android:layout_weight="1"
                 android:text="@{Mobile.internetUsed}" />
         </LinearLayout>
@@ -143,6 +170,8 @@
             <TextView
                 android:id="@+id/textViewMin"
                 android:layout_width="wrap_content"
+                android:textColor="#2B0000"
+                android:textSize="18sp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Minutes Used:" />
@@ -152,6 +181,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textColor="#2B0000"
+                android:textSize="18sp"
                 android:text="@{Mobile.minuteUsed}" />
         </LinearLayout>
         <LinearLayout
@@ -166,6 +197,8 @@
                 android:id="@+id/textViewAmnt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="#2B0000"
+                android:textSize="18sp"
                 android:layout_weight="1"
                 android:text="Bill Amount:" />
 
@@ -173,9 +206,12 @@
                 android:id="@+id/txtMobileBillAmount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="#2B0000"
+                android:textSize="18sp"
                 android:layout_weight="1"
                 android:text="@{StringUtil.convertDoubleToString(Mobile.billTotal)}" />
         </LinearLayout>
 
     </LinearLayout>
+    </androidx.cardview.widget.CardView>
 </layout>

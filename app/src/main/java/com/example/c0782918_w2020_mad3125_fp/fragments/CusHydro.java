@@ -5,6 +5,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
@@ -51,6 +52,8 @@ public class CusHydro extends Fragment {
         ShowBillDetailsActivity fragObject = (ShowBillDetailsActivity) getActivity();
 
         hydroRV = view.findViewById(R.id.rvCusHydro);
+        hydroRV.addItemDecoration(new DividerItemDecoration(getContext(),
+                DividerItemDecoration.VERTICAL));
 //        DataStorage.getInstance().loadData();
         populateHydroBill();
     }

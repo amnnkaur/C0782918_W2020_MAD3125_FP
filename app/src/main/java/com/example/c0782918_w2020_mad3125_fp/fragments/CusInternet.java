@@ -8,6 +8,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -62,6 +63,8 @@ public class CusInternet extends Fragment {
         ShowBillDetailsActivity fragObject = (ShowBillDetailsActivity) getActivity();
 
         internetRV = view.findViewById(R.id.rvCusInternet);
+        internetRV.addItemDecoration(new DividerItemDecoration(getContext(),
+                DividerItemDecoration.VERTICAL));
 //        DataStorage.getInstance().loadData();
         populateInternetBill();
     }

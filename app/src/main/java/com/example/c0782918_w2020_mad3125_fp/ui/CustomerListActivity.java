@@ -5,6 +5,7 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.app.Dialog;
@@ -51,8 +52,11 @@ public class CustomerListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         customerListBinding = DataBindingUtil.setContentView(this, R.layout.activity_customer_list);
+        getSupportActionBar().setTitle("Customer List");
 
         customerListBinding.rvCustomerList.setLayoutManager(new LinearLayoutManager(this));
+        customerListBinding.rvCustomerList.addItemDecoration(new DividerItemDecoration(this,
+                DividerItemDecoration.VERTICAL));
 
         DataStorage.getInstance().loadData();
         populateCustomers();

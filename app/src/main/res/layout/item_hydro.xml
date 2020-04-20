@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
         <variable
             name="Hydro"
@@ -7,6 +8,11 @@
         <import type="com.example.c0782918_w2020_mad3125_fp.util.StringUtil"/>
     </data>
 
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="#ECDFCB"
+        app:cardCornerRadius="10dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -25,12 +31,16 @@
                 android:id="@+id/textView4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="#2B0000"
+                android:textSize="18sp"
                 android:layout_weight="1"
                 android:text="Bill ID:   " />
             <TextView
                 android:id="@+id/txtHydBillID"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="#2B0000"
+                android:textSize="18sp"
                 android:layout_weight="1"
                 android:text="@{Hydro.billID}" />
         </LinearLayout>
@@ -44,15 +54,19 @@
             <TextView
                 android:id="@+id/textView6"
                 android:layout_width="wrap_content"
+                android:textColor="#2B0000"
+                android:textSize="18sp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Bill Date:" />
             <TextView
                 android:id="@+id/txtHydBillDate"
                 android:layout_width="wrap_content"
+                android:textColor="#2B0000"
+                android:textSize="18sp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Hydro.billDate}" />
+                android:text="@{Hydro.billDate}" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -64,6 +78,8 @@
             <TextView
                 android:id="@+id/textViewAgency"
                 android:layout_width="wrap_content"
+                android:textColor="#2B0000"
+                android:textSize="18sp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Agency Name:" />
@@ -72,6 +88,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textColor="#2B0000"
+                android:textSize="18sp"
                 android:text="@{Hydro.agencyName}" />
         </LinearLayout>
         <LinearLayout
@@ -84,6 +102,8 @@
             <TextView
                 android:id="@+id/textViewUnit"
                 android:layout_width="wrap_content"
+                android:textColor="#2B0000"
+                android:textSize="18sp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Units Consumed:" />
@@ -92,6 +112,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textColor="#2B0000"
+                android:textSize="18sp"
                 android:text="@{Hydro.unitsConsumed}" />
         </LinearLayout>
         <LinearLayout
@@ -105,14 +127,19 @@
                 android:id="@+id/textViewAmnt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="#2B0000"
+                android:textSize="18sp"
                 android:layout_weight="1"
                 android:text="Bill Amount:" />
             <TextView
                 android:id="@+id/txtHydBillAmount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="#2B0000"
+                android:textSize="18sp"
                 android:layout_weight="1"
                 android:text="@{StringUtil.convertDoubleToString(Hydro.billTotal)}" />
         </LinearLayout>
     </LinearLayout>
+    </androidx.cardview.widget.CardView>
 </layout>

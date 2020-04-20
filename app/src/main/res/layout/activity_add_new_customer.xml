@@ -14,7 +14,23 @@
     android:layout_height="match_parent"
     tools:context=".ui.AddNewCustomerActivity">
 
-    <com.google.android.material.textfield.TextInputLayout
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#2B0000"
+            android:fontFamily="sans-serif-light"
+            android:gravity="center"
+            android:text="New Customer Form"
+            android:textAlignment="center"
+            android:textColor="#F6EFE4"
+            android:textSize="28dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/editTxtID"
         android:layout_width="match_parent"
         android:layout_height="52dp"

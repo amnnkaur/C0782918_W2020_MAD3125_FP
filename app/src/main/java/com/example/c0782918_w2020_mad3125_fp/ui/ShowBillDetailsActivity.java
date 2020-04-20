@@ -1,5 +1,6 @@
 package com.example.c0782918_w2020_mad3125_fp.ui;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
@@ -8,6 +9,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -22,6 +25,7 @@ import com.example.c0782918_w2020_mad3125_fp.singleton.DataStorage;
 import com.google.android.material.tabs.TabLayout;
 public class ShowBillDetailsActivity extends AppCompatActivity {
     ActivityShowBillDetailsBinding showBillDetailsBinding;
+
     FragmentManager mFragmentManager;
     FragmentTransaction mFragmentTransaction;
     Bundle fetch;
@@ -30,6 +34,7 @@ public class ShowBillDetailsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         showBillDetailsBinding = DataBindingUtil.setContentView(this, R.layout.activity_show_bill_details);
+        getSupportActionBar().setTitle("Bill Details");
         Intent myIntent = getIntent();
         fetch = myIntent.getBundleExtra("object");
         object = (Customer) fetch.getSerializable("customerDetail");
