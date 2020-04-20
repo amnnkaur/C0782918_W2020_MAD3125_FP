@@ -57,10 +57,10 @@ public class AddNewBillActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add_new_bill);
 
         Intent fetch = getIntent();
-        if(fetch.hasExtra("customer")){
+        if(fetch.hasExtra("customerID")){
             customer = fetch.getStringExtra("customerID");
         }
-
+        Toast.makeText(AddNewBillActivity.this, customer, Toast.LENGTH_SHORT).show();
         txtNewBillID = findViewById(R.id.txtNewBillID);
         txtNewBillDate = findViewById(R.id.txtNewBillDate);
         txtNew1 = findViewById(R.id.txtNew1);
