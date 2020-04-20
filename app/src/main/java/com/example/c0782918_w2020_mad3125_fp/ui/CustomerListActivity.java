@@ -21,6 +21,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -42,7 +43,8 @@ public class CustomerListActivity extends AppCompatActivity {
     private ArrayList<Customer> customerArrayList;
 
     private WebView webView;
-    private Dialog abtDialog;
+    private Dialog abtDialog, conDialog;
+    TextView txtContactUs;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -90,11 +92,10 @@ public class CustomerListActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.menu_aboutUs:
-                aboutUsDialog(this);
+                aboutUsDialog(webView);
                 break;
             case R.id.menu_contactUs:
-               /* Intent conIntent = new Intent(CustomerListActivity.this,LoginActivity.class);
-                startActivity(conIntent);*/
+                contactUsDialog();
                 break;
             case R.id.menu_logout:
                 AlertDialog.Builder alertBuilder = new AlertDialog.Builder(CustomerListActivity.this);
@@ -121,22 +122,34 @@ public class CustomerListActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void aboutUsDialog(final Context context){
-        abtDialog = new Dialog(context);
-        abtDialog.setContentView(R.layout.about_us);
-        abtDialog.setTitle("About Us");
 
-        webView.loadUrl("https://www.lambtoncollege.ca/");
-        webView.setWebViewClient(new WebViewClient() {
-            @Override
-            public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                view.loadUrl(url);
-                return true;
-            }
-        });
-        abtDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        abtDialog.show();
+        public void aboutUsDialog(View view){
+            abtDialog = new Dialog(this);
+            abtDialog.setContentView(R.layout.about_us);
+            abtDialog.setTitle("About Us");
+            webView = abtDialog.findViewById(R.id.web_abtUs);
+            webView.loadUrl("https://www.lambtoncollege.ca/");
+            webView.setWebViewClient(new WebViewClient() {
+                @Override
+                public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                    view.loadUrl(url);
+                    return shouldOverrideUrlLoading(view,url);
+                }
+            });
+            abtDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+            abtDialog.show();
+        }
+
+
+    public void contactUsDialog(){
+        conDialog = new Dialog(this);
+        conDialog.setContentView(R.layout.contact_us);
+        conDialog.setTitle("Contact Us");
+        txtContactUs = findViewById(R.id.txtContactUs);
+        conDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        conDialog.show();
     }
+
 
     @Override
     protected void onPause() {

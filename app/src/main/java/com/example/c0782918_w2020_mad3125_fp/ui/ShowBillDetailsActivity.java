@@ -43,9 +43,11 @@ public class ShowBillDetailsActivity extends AppCompatActivity {
         showBillDetailsBinding.setCustomer(object);
 
 
-        Toast.makeText(ShowBillDetailsActivity.this, object.getCustomerID(), Toast.LENGTH_SHORT).show();
+        //Toast.makeText(ShowBillDetailsActivity.this, object.getCustomerID(), Toast.LENGTH_SHORT).show();
 
         CusHydro.customerid = object.getCustomerID();
+        CusMobile.customerid = object.getCustomerID();
+        CusInternet.customerid = object.getCustomerID();
 
         mFragmentManager = getSupportFragmentManager();
         mFragmentTransaction = mFragmentManager.beginTransaction();

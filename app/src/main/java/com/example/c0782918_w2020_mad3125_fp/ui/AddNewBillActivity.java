@@ -97,7 +97,7 @@ public class AddNewBillActivity extends AppCompatActivity {
                                     txtNew1.setError("Please enter Agency Name");
                                 } else if (txtNew2.getText().toString().isEmpty()) {
                                     txtNew2.setError("Please enter Units Consumed");
-                                } else if (txtNewBillID.getText().toString().contains("HYD")) {
+                                } else  {
                                     Hydro hyd = new Hydro(customer,txtNewBillID.getText().toString(),
                                             BillType.HYDRO,
                                             txtNewBillDate.getText().toString(),
@@ -105,7 +105,7 @@ public class AddNewBillActivity extends AppCompatActivity {
                                             Integer.parseInt(txtNew2.getText().toString()));
                                     DataStorage.getInstance().addHydro(hyd);
                                     HydAdapter.lastIndex +=1;
-                                    Intent billIntent = new Intent(AddNewBillActivity.this, CustomerListActivity.class);
+                                    Intent billIntent = new Intent(AddNewBillActivity.this, ShowBillDetailsActivity.class);
                                     startActivity(billIntent);
                                 }
                             }
@@ -128,7 +128,7 @@ public class AddNewBillActivity extends AppCompatActivity {
                                     txtNew1.setError("Please enter Provider Name");
                                 } else if (txtNew2.getText().toString().isEmpty()) {
                                     txtNew2.setError("Please enter Internet GB used");
-                                } else if (txtNewBillID.getText().toString().contains("INT")) {
+                                } else  {
                                     Internet internet = new Internet(customer,txtNewBillID.getText().toString(),
                                             BillType.INTERNET,
                                             txtNewBillDate.getText().toString(),
@@ -136,7 +136,7 @@ public class AddNewBillActivity extends AppCompatActivity {
                                             Integer.parseInt(txtNew2.getText().toString()));
                                     DataStorage.getInstance().addInternet(internet);
                                     InternetAdapter.lastIndex +=1;
-                                    Intent billIntent = new Intent(AddNewBillActivity.this, CustomerListActivity.class);
+                                    Intent billIntent = new Intent(AddNewBillActivity.this, ShowBillDetailsActivity.class);
                                     startActivity(billIntent);
                                 }
                             }
@@ -168,7 +168,7 @@ public class AddNewBillActivity extends AppCompatActivity {
                                     txtNew4.setError("Please enter Internet GB used");
                                 } else if (txtNew5.getText().toString().isEmpty()) {
                                     txtNew5.setError("Please enter Minutes used");
-                                } else if (txtNewBillID.getText().toString().contains("MOB")) {
+                                } else {
                                     Mobile mob = new Mobile(customer,txtNewBillID.getText().toString(),
                                             BillType.MOBILE,
                                             txtNewBillDate.getText().toString(),
@@ -179,7 +179,7 @@ public class AddNewBillActivity extends AppCompatActivity {
                                             Integer.parseInt(txtNew5.getText().toString()));
                                     DataStorage.getInstance().addMobile(mob);
                                     MobileAdapter.lastIndex +=1;
-                                    Intent billIntent = new Intent(AddNewBillActivity.this, CustomerListActivity.class);
+                                    Intent billIntent = new Intent(AddNewBillActivity.this, ShowBillDetailsActivity.class);
                                     startActivity(billIntent);
                                 }
                             }
